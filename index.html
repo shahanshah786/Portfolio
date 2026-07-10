@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Shahnshah — Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Md Shahnshah, Full-Stack Developer specializing in PHP, ReactJS, JavaScript and MySQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b1220;
+    --bg-2:#0e1626;
+    --panel:#141b2d;
+    --panel-2:#1b2438;
+    --line: rgba(232,163,61,0.16);
+    --line-cyan: rgba(94,234,212,0.14);
+    --text:#edeff5;
+    --muted:#8a93a6;
+    --amber:#e8a33d;
+    --amber-dim: rgba(232,163,61,0.35);
+    --cyan:#5eead4;
+    --radius: 14px;
+    --maxw: 1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(94,234,212,0.06), transparent 60%),
+      radial-gradient(1000px 700px at 100% 0%, rgba(232,163,61,0.07), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* circuit-line background texture */
+  .circuit-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.5;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(1000px 700px at 50% 0%, black, transparent 75%);
+  }
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background: rgba(11,18,32,0.72);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--amber); box-shadow:0 0 12px var(--amber);}
+  nav.links{display:flex; gap:28px; font-size:14px; color:var(--muted);}
+  nav.links a{transition:color .2s ease;}
+  nav.links a:hover{color:var(--amber);}
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    border:1px solid var(--amber-dim); color:var(--amber);
+    padding:8px 14px; border-radius:8px; transition:all .2s ease;
+  }
+  .nav-cta:hover{background:rgba(232,163,61,0.1); border-color:var(--amber);}
+
+  @media (max-width:760px){
+    nav.links{display:none;}
+  }
+
+  /* HERO */
+  section.hero{
+    position:relative; z-index:1;
+    padding:90px 0 70px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
+    color:var(--cyan); text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--cyan);}
+  h1.name{font-size:clamp(38px, 5.4vw, 62px); font-weight:700; line-height:1.05;}
+  h1.name .accent{color:var(--amber);}
+  p.tagline{
+    margin-top:20px; font-size:17px; color:var(--muted); max-width:520px;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13.5px;
+    padding:13px 22px; border-radius:9px; display:inline-flex; align-items:center; gap:8px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--amber); color:#1a1305; font-weight:500;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(232,163,61,0.25);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.14); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px);}
+
+  .hero-meta{margin-top:38px; display:flex; gap:24px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted);}
+  .hero-meta span{display:flex; align-items:center; gap:7px;}
+  .hero-meta .b{color:var(--text);}
+
+  /* 3D signature stack */
+  .stage{
+    perspective:1200px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; height:420px;
+  }
+  .stack{
+    position:relative; width:280px; height:280px;
+    transform-style:preserve-3d;
+    transform: rotateX(52deg) rotateZ(-38deg);
+    transition:transform .15s ease-out;
+  }
+  .layer{
+    position:absolute; inset:0; border-radius:16px;
+    border:1px solid rgba(255,255,255,0.12);
+    display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end;
+    padding:16px 18px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+    backdrop-filter: blur(2px);
+  }
+  .layer .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;}
+  .layer .stack-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; margin-top:4px;}
+  .layer.l1{
+    background:linear-gradient(145deg, rgba(94,234,212,0.22), rgba(94,234,212,0.06));
+    border-color:rgba(94,234,212,0.4);
+    transform: translateZ(64px);
+    color:#c9fff2;
+  }
+  .layer.l2{
+    background:linear-gradient(145deg, rgba(232,163,61,0.22), rgba(232,163,61,0.05));
+    border-color:rgba(232,163,61,0.4);
+    transform: translateZ(0px);
+    color:#ffe4b3;
+  }
+  .layer.l3{
+    background:linear-gradient(145deg, rgba(160,140,255,0.20), rgba(160,140,255,0.04));
+    border-color:rgba(160,140,255,0.35);
+    transform: translateZ(-64px);
+    color:#e2dcff;
+  }
+  .photo-frame{
+    position:absolute; right:-6px; top:-26px;
+    width:132px; height:132px; border-radius:50%;
+    padding:4px;
+    background:conic-gradient(from 180deg, var(--amber), var(--cyan), var(--amber));
+    box-shadow:0 18px 40px rgba(0,0,0,0.5);
+    transform: translateZ(120px);
+  }
+  .photo-frame img{
+    width:100%; height:100%; object-fit:cover; border-radius:50%;
+    border:3px solid var(--bg);
+  }
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+    .stage{height:320px; margin-top:10px;}
+    .stack{width:220px;height:220px;}
+    .photo-frame{width:104px;height:104px;}
+  }
+
+  /* SECTION shared */
+  section{position:relative; z-index:1; padding:76px 0;}
+  .section-head{margin-bottom:40px;}
+  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--amber); margin-bottom:10px; letter-spacing:.1em;}
+  h2.section-title{font-size:clamp(26px,3.4vw,34px); font-weight:600;}
+  p.section-sub{color:var(--muted); margin-top:12px; max-width:640px; font-size:15.5px;}
+
+  /* ABOUT */
+  .about-panel{
+    background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius);
+    padding:34px 38px; font-size:16px; color:#c9cede;
+  }
+  .about-panel b{color:var(--text); font-weight:600;}
+
+  /* SKILLS */
+  .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .skill-card{
+    background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius);
+    padding:22px; transition:transform .25s ease, border-color .25s ease;
+  }
+  .skill-card:hover{transform:translateY(-4px); border-color:var(--amber-dim);}
+  .skill-card .k-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:.08em; text-transform:uppercase;}
+  .skill-card .k-items{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; padding:6px 10px; border-radius:6px;
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:var(--text);
+  }
+  @media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.skills-grid{grid-template-columns:1fr;}}
+
+  /* EXPERIENCE timeline */
+  .timeline{border-left:1px solid rgba(255,255,255,0.1); padding-left:32px; position:relative;}
+  .t-item{position:relative; padding-bottom:8px;}
+  .t-item::before{
+    content:''; position:absolute; left:-38px; top:6px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--amber);
+  }
+  .t-role{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600;}
+  .t-org{color:var(--cyan); font-size:14.5px; margin-top:4px;}
+  .t-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-top:4px;}
+  .t-list{margin:16px 0 0; padding-left:18px; color:#c9cede; font-size:15px;}
+  .t-list li{margin-bottom:8px;}
+
+  /* PROJECTS - 3D tilt cards */
+  .projects-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:800px){.projects-grid{grid-template-columns:1fr;}}
+  .tilt-wrap{perspective:1000px;}
+  .proj-card{
+    background:linear-gradient(160deg, var(--panel-2), var(--panel));
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:var(--radius); padding:30px;
+    transform-style:preserve-3d;
+    transition:transform .12s ease-out, box-shadow .12s ease-out;
+    height:100%;
+  }
+  .proj-card:hover{box-shadow:0 24px 50px rgba(0,0,0,0.4);}
+  .proj-index{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber);}
+  .proj-title{font-size:21px; font-weight:600; margin-top:10px;}
+  .proj-stack{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+  .proj-list{margin:18px 0 0; padding-left:18px; color:#c9cede; font-size:14.5px;}
+  .proj-list li{margin-bottom:8px;}
+
+  /* EDU + CERT */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:800px){.two-col{grid-template-columns:1fr;}}
+  .info-card{background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius); padding:28px;}
+  .info-card h3{font-size:18px; margin-bottom:14px; color:var(--amber);}
+  .edu-degree{font-weight:600; font-size:16px;}
+  .edu-school{color:var(--muted); font-size:14px; margin-top:6px;}
+  .edu-meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--cyan); margin-top:10px;}
+  .cert-item{display:flex; gap:10px; margin-bottom:14px; font-size:14.5px; color:#c9cede;}
+  .cert-item .m{color:var(--cyan); font-family:'IBM Plex Mono',monospace; font-size:12px; min-width:18px;}
+
+  /* CONTACT / FOOTER */
+  footer{
+    border-top:1px solid rgba(255,255,255,0.07);
+    padding:64px 0 40px; position:relative; z-index:1;
+  }
+  .contact-box{
+    background:radial-gradient(600px 300px at 30% 0%, rgba(232,163,61,0.08), transparent), var(--panel);
+    border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:48px; text-align:center;
+  }
+  .contact-box h2{font-size:clamp(24px,3.4vw,32px);}
+  .contact-box p{color:var(--muted); margin-top:12px;}
+  .contact-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:30px;}
+  .contact-links a{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; padding:11px 18px; border-radius:8px;
+    border:1px solid rgba(255,255,255,0.12); transition:all .2s ease;
+  }
+  .contact-links a:hover{border-color:var(--amber); color:var(--amber); transform:translateY(-2px);}
+  .foot-note{text-align:center; margin-top:36px; color:var(--muted); font-size:12.5px; font-family:'IBM Plex Mono',monospace;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important;}
+  }
+
+  ::selection{background:var(--amber); color:#1a1305;}
+</style>
+</head>
+<body>
+
+<div class="circuit-bg"></div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span> Md Shahnshah</div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Get in touch →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Full-Stack Developer</div>
+      <h1 class="name">Md <span class="accent">Shahnshah</span></h1>
+      <p class="tagline">I build responsive, production-ready web applications with PHP, ReactJS, JavaScript and MySQL — from database schema to pixel-perfect UI, integrating APIs that actually save teams time.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
+      <div class="hero-meta">
+        <span>📍 <span class="b">Noida, Uttar Pradesh, India</span></span>
+        <span>✉️ <span class="b">mdshahnshah855113@gmail.com</span></span>
+        <span>📱 <span class="b">+91 7903267211</span></span>
+      </div>
+    </div>
+
+    <div class="stage" id="stage">
+      <div class="stack" id="stack">
+        <div class="photo-frame"><img src="assets/profile.jpg" alt="Md Shahnshah"></div>
+        <div class="layer l1">
+          <div class="tag">Layer 01</div>
+          <div class="stack-title">ReactJS · JS · UI</div>
+        </div>
+        <div class="layer l2">
+          <div class="tag">Layer 02</div>
+          <div class="stack-title">PHP · Java Logic</div>
+        </div>
+        <div class="layer l3">
+          <div class="tag">Layer 03</div>
+          <div class="stack-title">MySQL Data</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">01 / About</div>
+      <h2 class="section-title">Professional Summary</h2>
+    </div>
+    <div class="about-panel">
+      <p><b>Full-stack developer</b> with hands-on experience building responsive web applications using PHP, ReactJS, JavaScript, and MySQL. Proven track record of delivering client projects on schedule, integrating third-party APIs, and collaborating in cross-functional teams. Strong foundation in data structures, algorithms, and Java/C/C++.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">02 / Skills</div>
+      <h2 class="section-title">Technical Toolkit</h2>
+      <p class="section-sub">The languages, frameworks and tools I use to take an idea from schema to screen.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="k-label">Languages</div>
+        <div class="k-items">
+          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Java</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="k-label">Web Stack</div>
+        <div class="k-items">
+          <span class="chip">PHP</span><span class="chip">ReactJS</span><span class="chip">JavaScript</span>
+          <span class="chip">Tailwind CSS</span><span class="chip">Servlets</span><span class="chip">JSP</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="k-label">Database</div>
+        <div class="k-items">
+          <span class="chip">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="k-label">Tools & Platforms</div>
+        <div class="k-items">
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Eclipse</span>
+          <span class="chip">Android Studio</span><span class="chip">Visual Studio</span>
+          <span class="chip">Linux</span><span class="chip">Apache Tomcat</span><span class="chip">WordPress</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">03 / Experience</div>
+      <h2 class="section-title">Where I've Worked</h2>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-role">Full Stack Developer Intern</div>
+        <div class="t-org">Sewacity.com, Patna</div>
+        <div class="t-date">JAN 2024 — JUN 2024</div>
+        <ul class="t-list">
+          <li>Engineered 4+ responsive web application features using PHP, ReactJS, JavaScript, and Tailwind CSS, improving UI consistency across devices.</li>
+          <li>Integrated 3 third-party APIs to extend website functionality, reducing manual data-entry workload for the team by an estimated 30%.</li>
+          <li>Delivered 2 client-facing projects on schedule as part of a cross-functional team, with zero missed deadlines.</li>
+          <li>Debugged and resolved recurring issues in production code, improving page stability and reducing user-reported errors.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">04 / Projects</div>
+      <h2 class="section-title">Selected Work</h2>
+      <p class="section-sub">Move your cursor over a card — it tilts in 3D, like everything else on this page.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="tilt-wrap">
+        <div class="proj-card tilt">
+          <div class="proj-index">PROJECT / 01</div>
+          <div class="proj-title">Crime Data Management System</div>
+          <div class="proj-stack">
+            <span class="chip">Java</span><span class="chip">Servlets</span><span class="chip">JSP</span>
+            <span class="chip">MySQL</span><span class="chip">Apache Tomcat</span>
+          </div>
+          <ul class="proj-list">
+            <li>Built a full-stack criminal records management system deployed on Apache Tomcat 8.5.</li>
+            <li>Designed the database schema and backend logic independently, demonstrating end-to-end full-stack development.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tilt-wrap">
+        <div class="proj-card tilt">
+          <div class="proj-index">PROJECT / 02</div>
+          <div class="proj-title">KhetGuru App</div>
+          <div class="proj-stack">
+            <span class="chip">Android</span><span class="chip">Cloud APIs</span><span class="chip">OTP Auth</span>
+          </div>
+          <ul class="proj-list">
+            <li>Developed an AI-assisted Android application supporting crop management, disease identification, and weather-based recommendations for farmers.</li>
+            <li>Implemented secure OTP authentication and multilingual support, expanding accessibility for non-English-speaking users.</li>
+            <li>Integrated cloud-based APIs to deliver real-time agricultural data, improving decision-making speed for end users.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-num">05 / Education & Certifications</div>
+      <h2 class="section-title">Foundation</h2>
+    </div>
+    <div class="two-col">
+      <div class="info-card">
+        <h3>Education</h3>
+        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-school">Institute of Management Studies, Noida — Chaudhary Charan Singh University, Meerut</div>
+        <div class="edu-meta">JUN 2021 — JUN 2024 · 70.58%</div>
+        <div class="edu-meta" style="color:var(--muted); margin-top:8px;">Coursework: Data Structures & Algorithms, C/C++/Java, Operating Systems, Computer Networks</div>
+      </div>
+      <div class="info-card">
+        <h3>Certifications & Achievements</h3>
+        <div class="cert-item"><span class="m">01</span> PHP & MySQL Certification — IIT Bombay</div>
+        <div class="cert-item"><span class="m">02</span> Presenter, 7th International Conference on Internet of Things Applications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <h2>Let's build something together.</h2>
+      <p>Open to full-stack developer roles and freelance projects.</p>
+      <div class="contact-links">
+        <a href="mailto:mdshahnshah855113@gmail.com">✉️ Email</a>
+        <a href="tel:+917903267211">📱 Call</a>
+        <a href="https://linkedin.com/in/md-shahnshah-4562a4266" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a href="https://github.com/shahanshah786" target="_blank" rel="noopener">💻 GitHub</a>
+      </div>
+    </div>
+    <div class="foot-note">© 2026 Md Shahnshah · Built with HTML, CSS & JavaScript</div>
+  </div>
+</footer>
+
+<script>
+  // 3D tilt for hero stack, driven by pointer position
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stage = document.getElementById('stage');
+    const stack = document.getElementById('stack');
+    if(!reduce && stage && stack){
+      stage.addEventListener('mousemove', (e)=>{
+        const r = stage.getBoundingClientRect();
+        const px = (e.clientX - r.left)/r.width - 0.5;
+        const py = (e.clientY - r.top)/r.height - 0.5;
+        const rx = 52 - py*22;
+        const rz = -38 + px*26;
+        stack.style.transform = `rotateX(${rx}deg) rotateZ(${rz}deg)`;
+      });
+      stage.addEventListener('mouseleave', ()=>{
+        stack.style.transform = 'rotateX(52deg) rotateZ(-38deg)';
+      });
+    }
+  })();
+
+  // 3D tilt for project cards
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    document.querySelectorAll('.tilt').forEach(card=>{
+      const wrap = card.parentElement;
+      wrap.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left)/r.width - 0.5;
+        const py = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = `rotateY(${px*10}deg) rotateX(${-py*10}deg) translateZ(6px)`;
+      });
+      wrap.addEventListener('mouseleave', ()=>{
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    });
+  })();
+
+  // fade-in sections on scroll
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.style.opacity = 1;
+        en.target.style.transform = 'translateY(0)';
+        obs.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.12});
+
+  document.querySelectorAll('section').forEach(sec=>{
+    sec.style.opacity = 0;
+    sec.style.transform = 'translateY(24px)';
+    sec.style.transition = 'opacity .6s ease, transform .6s ease';
+    obs.observe(sec);
+  });
+</script>
+
+</body>
+</html>
