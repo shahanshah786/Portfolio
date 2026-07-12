@@ -13,35 +13,37 @@
 }
 .side .brand .mark.profile-avatar img{ width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
 
-.nav-combo{ position:relative; }
-.nav-combo-btn{ display:inline-flex; align-items:center; gap:6px; cursor:pointer; user-select:none; }
-.topbar .nav-combo-btn{
-  background:linear-gradient(180deg,#2fd68a,#22b6c9); color:#06231d; font-weight:700;
-  padding:8px 14px; border-radius:10px;
-  box-shadow:0 4px 0 #157e8a, 0 8px 14px rgba(0,0,0,.35);
-  transform:translateY(0); transition:transform .12s ease, box-shadow .12s ease;
+.mini-3d-wrap{ perspective:700px; display:inline-block; }
+.mini-3d-btn{
+  display:flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  color:#062018;
+  background:linear-gradient(180deg,#37e0a0,#20b5c9);
+  box-shadow:0 5px 0 #146b78, 0 10px 18px rgba(0,0,0,.4);
+  transform:translateY(0) rotateX(0deg);
+  transform-style:preserve-3d;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1.4), box-shadow .25s ease;
+  cursor:pointer;
 }
-.topbar .nav-combo-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 0 #157e8a, 0 10px 16px rgba(0,0,0,.4); }
-.topbar .nav-combo-btn:active{ transform:translateY(2px); box-shadow:0 2px 0 #157e8a, 0 4px 8px rgba(0,0,0,.3); }
-.side .nav-combo-btn{
-  width:100%; padding:10px 12px; border-radius:10px;
-  background:linear-gradient(180deg,#2fd68a,#22b6c9); color:#06231d; font-weight:700;
-  box-shadow:0 4px 0 #157e8a, 0 6px 10px rgba(0,0,0,.35);
-  transform:translateY(0); transition:transform .12s ease, box-shadow .12s ease;
+.mini-3d-btn:hover{ transform:translateY(-3px) rotateX(8deg); box-shadow:0 8px 0 #146b78, 0 16px 24px rgba(0,0,0,.45); }
+.mini-3d-btn.opening{ transform:translateY(2px) rotateX(-25deg) scale(.94); box-shadow:0 2px 0 #146b78, 0 4px 10px rgba(0,0,0,.3); }
+.mini-3d-btn.achieve-btn{ background:linear-gradient(180deg,#ffb648,#ff7a59); box-shadow:0 5px 0 #a5401e, 0 10px 18px rgba(0,0,0,.4); }
+.mini-3d-btn.achieve-btn:hover{ box-shadow:0 8px 0 #a5401e, 0 16px 24px rgba(0,0,0,.45); }
+.mini-3d-btn.achieve-btn.opening{ box-shadow:0 2px 0 #a5401e, 0 4px 10px rgba(0,0,0,.3); }
+
+.side .mini-btn-row{
+  display:flex; flex-direction:column; gap:10px;
+  margin:14px 0 4px;
 }
-.side .nav-combo-btn:hover{ transform:translateY(-2px); }
-.side .nav-combo-btn:active{ transform:translateY(2px); box-shadow:0 2px 0 #157e8a, 0 3px 6px rgba(0,0,0,.3); }
-.side .nav-combo-btn .dot{ display:none; }
-.nav-combo-caret{ font-size:11px; transition:transform .15s ease; }
-.nav-combo.open .nav-combo-caret{ transform:rotate(180deg); }
-.nav-combo-menu{
-  position:absolute; top:calc(100% + 8px); left:0; min-width:190px;
-  background:#0f1720; border:1px solid rgba(255,255,255,.12); border-radius:10px;
-  box-shadow:0 10px 24px rgba(0,0,0,.45); padding:6px; display:none; z-index:50;
-}
-.nav-combo.open .nav-combo-menu{ display:block; }
-.nav-combo-menu a{ display:block; padding:9px 10px; border-radius:7px; color:#e8f0ee; text-decoration:none; font-size:14px; }
-.nav-combo-menu a:hover{ background:rgba(255,255,255,.08); }
+.side .mini-btn-row .mini-3d-wrap{ display:block; }
+.side .mini-btn-row .mini-3d-btn{ width:100%; justify-content:center; }
+
+.topbar .mini-btn-row{ display:flex; gap:10px; margin-left:10px; }
+.topbar .mini-3d-btn{ padding:7px 14px; font-size:13px; }
 </style>
 </head>
 <body>
@@ -53,14 +55,11 @@
 <a href="index.html#skills">Skills</a>
 <a href="index.html#projects">Projects</a>
 <a href="index.html#experience">Experience</a>
-<div class="nav-combo" id="navComboTop">
-  <span class="nav-combo-btn" id="navComboBtnTop">Certificates &amp; Achievements <span class="nav-combo-caret">▾</span></span>
-  <div class="nav-combo-menu">
-    <a href="certificates.html" class="active">Certificates</a>
-    <a href="achievements.html">Achievements</a>
-  </div>
-</div>
 <a href="index.html#contact">Contact</a>
+<div class="mini-btn-row">
+  <div class="mini-3d-wrap"><span class="mini-3d-btn cert-btn" data-href="certificates.html">🎓 Certificates</span></div>
+  <div class="mini-3d-wrap"><span class="mini-3d-btn achieve-btn" data-href="achievements.html">🏆 Achievements</span></div>
+</div>
 </nav>
 </div>
 <div class="shell">
@@ -76,16 +75,13 @@
 <li><a href="index.html#skills"><span class="dot"></span> Skills</a></li>
 <li><a href="index.html#projects"><span class="dot"></span> Projects</a></li>
 <li><a href="index.html#experience"><span class="dot"></span> Experience</a></li>
-<li class="nav-combo open" id="navComboSide">
-  <span class="nav-combo-btn" id="navComboBtnSide">Certificates &amp; Achievements <span class="nav-combo-caret">▾</span></span>
-  <div class="nav-combo-menu">
-    <a href="certificates.html" class="active">Certificates</a>
-    <a href="achievements.html">Achievements</a>
-  </div>
-</li>
 <li><a href="index.html#contact"><span class="dot"></span> Contact</a></li>
 </ul>
 </nav>
+<div class="mini-btn-row">
+  <div class="mini-3d-wrap"><span class="mini-3d-btn cert-btn" data-href="certificates.html">🎓 Certificates</span></div>
+  <div class="mini-3d-wrap"><span class="mini-3d-btn achieve-btn" data-href="achievements.html">🏆 Achievements</span></div>
+</div>
 <div class="cta">
 <a href="assets/SHAHNSHAH-RESUME.pdf" download class="btn btn-primary">Download CV ↓</a>
 <a href="index.html#contact" class="btn btn-ghost">Let's Connect →</a>
@@ -143,15 +139,13 @@ lightbox.classList.add('open');
 lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
 
-function setupNavCombo(wrapId, btnId){
-  var wrap = document.getElementById(wrapId);
-  var btn = document.getElementById(btnId);
-  if(!wrap || !btn) return;
-  btn.addEventListener('click', function(e){ e.stopPropagation(); wrap.classList.toggle('open'); });
-  document.addEventListener('click', function(){ wrap.classList.remove('open'); });
-}
-setupNavCombo('navComboTop', 'navComboBtnTop');
-setupNavCombo('navComboSide', 'navComboBtnSide');
+document.querySelectorAll('.mini-3d-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var target = btn.getAttribute('data-href');
+    btn.classList.add('opening');
+    setTimeout(function(){ window.location.href = target; }, 260);
+  });
+});
 </script>
 </body>
 </html>
