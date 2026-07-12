@@ -63,7 +63,7 @@
 
 /* --- Project thumbnails: consistent, shorter height --- */
 .project-thumb.project-thumb-img{ height:150px; overflow:hidden; }
-.project-thumb.project-thumb-img img{ width:100%; height:150px; object-fit:cover; object-position:top; display:block; }
+.project-thumb.project-thumb-img img{ width:100%; height:150px; object-fit:contain; object-position:center; display:block; }
 .project-card-featured{ cursor:pointer; }
 
 /* --- KhetGuru full detail modal --- */
@@ -97,17 +97,40 @@
 .kg-modal-body ul{ margin:0 0 4px; padding-left:20px; color:#d7e2e0; }
 .kg-modal-body li{ margin-bottom:5px; line-height:1.5; }
 .kg-modal-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
-.kg-modal-tags span{
-  background:rgba(47,214,138,.12); color:#7fe6b8;
-  border:1px solid rgba(47,214,138,.3);
-  padding:4px 11px; border-radius:20px; font-size:12px;
+/* --- Education section (replaces old fact-list) --- */
+.edu-list{ margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-direction:column; gap:14px; }
+.edu-item{ background:rgba(255,255,255,.02); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:14px 16px; }
+.edu-item-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.edu-item-head h4{ font-size:14px; color:#e7ecf3; margin:0 0 3px; }
+.edu-item-head p{ font-size:12.5px; color:#9aa7b8; margin:0; }
+.edu-3d-btn{
+  flex-shrink:0;
+  padding:8px 14px;
+  border-radius:9px;
+  font-weight:700;
+  font-size:12.5px;
+  color:#062018;
+  background:linear-gradient(180deg,#37e0a0,#20b5c9);
+  box-shadow:0 4px 0 #146b78, 0 8px 14px rgba(0,0,0,.35);
+  border:none;
+  cursor:pointer;
+  transform:translateY(0);
+  transition:transform .18s cubic-bezier(.2,.8,.3,1.4), box-shadow .18s ease;
 }
+.edu-3d-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 0 #146b78, 0 12px 18px rgba(0,0,0,.4); }
+.edu-3d-btn.active{ transform:translateY(2px) scale(.97); box-shadow:0 2px 0 #146b78, 0 4px 8px rgba(0,0,0,.3); }
+.edu-item-body{ max-height:0; overflow:hidden; transition:max-height .4s ease, margin-top .4s ease; margin-top:0; }
+.edu-item-body.open{ max-height:300px; margin-top:12px; }
+.edu-item-body ul{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.edu-item-body li{ font-size:12.5px; color:#c7cfdb; padding-left:14px; position:relative; }
+.edu-item-body li::before{ content:'▹'; position:absolute; left:0; color:#3ddc97; }
+@media (max-width:520px){ .edu-item-body ul{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="brand"><div class="mark-photo mark-photo-sm"><img src="assets/profile.jpg" alt="MD Shahnshah"></div></div>
+  <div class="brand"><div class="mark-photo mark-photo-sm"><img src="assets/home.png" alt="MD Shahnshah"></div></div>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -171,7 +194,7 @@
   <div class="hero-bg" data-parallax></div>
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <div class="kicker mono">&lt;/&gt; Hi, I'm</div>
+      <div class="kicker mono"> Hi, I'm</div>
       <h1>MD <span>Shahnshah</span></h1>
       <div class="role-line mono">Software Engineer <span class="pipe">|</span> Full Stack Developer <span class="pipe">|</span> Data Scientist</div>
       <span class="tag learning-tag">🔬 Learning Data Science — Research phase</span>
@@ -227,12 +250,49 @@
         </div>
         <button class="read-more-btn" id="readMoreBtn">Read more ↓</button>
 
-        <ul class="fact-list">
-          <li><b>Noida, India</b>Based in</li>
-          <li><b>BCA — 70.58%</b>Institute of Management Studies, Noida (2021–2024)</li>
-          <li><b>Full Stack</b>Focus area</li>
-          <li><b>Data Science</b>Researching now</li>
-        </ul>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-item-head">
+              <div>
+                <h4>BCA — Computer Application</h4>
+                <h1>Chaudhary Charan Singh University, Meerut </h1>
+                <p>Affiliate:</p> <p>Institute of Management Studies, Noida · 2021–2024 · 70.58%</p>
+              </div>
+              <button class="edu-3d-btn" data-target="eduBCA">Coursework</button>
+            </div>
+            <div class="edu-item-body" id="eduBCA">
+              <ul>
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Java, C &amp; C++</li>
+                <li>Operating Systems</li>
+                <li>Computer Networks</li>
+                <li>DBMS &amp; MySQL</li>
+                <li>Web Technologies</li>
+                <li>Software Engineering</li>
+                <li>Computer Organization</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <div class="edu-item-head">
+              <div>
+                <h4>12th — Commerce</h4>
+                <p>RDS College, Salmari . 2020</p>
+              </div>
+              <button class="edu-3d-btn" data-target="edu12th">Coursework</button>
+            </div>
+            <div class="edu-item-body" id="edu12th">
+              <ul>
+                <li>Accountancy</li>
+                <li>Business Studies</li>
+                <li>Economics</li>
+                <li>English</li>
+                <li>Computer Application</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="card">
@@ -588,6 +648,17 @@ if(kgCard && kgModal){
   kgModalClose.addEventListener('click', function(){ kgModal.classList.remove('open'); });
   kgModal.addEventListener('click', function(e){ if(e.target === kgModal) kgModal.classList.remove('open'); });
 }
+
+// --- Education: 3D button click reveals coursework ---
+document.querySelectorAll('.edu-3d-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var body = document.getElementById(btn.getAttribute('data-target'));
+    if(!body) return;
+    btn.classList.add('active');
+    setTimeout(function(){ btn.classList.remove('active'); }, 180);
+    body.classList.toggle('open');
+  });
+});
 </script>
 </body>
 </html>
