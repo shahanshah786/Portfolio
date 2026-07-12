@@ -3,848 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Md Shahnshah — Software Engineer, Data Scientist & AI</title>
-<meta name="description" content="Portfolio of Md Shahnshah — Software Engineer and Data Scientist building with PHP, ReactJS, Python, Java and MySQL. Creator of KhetGuru, an AI-assisted platform for farmers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0b1220;
-    --bg-2:#0e1626;
-    --panel:#141b2d;
-    --panel-2:#1b2438;
-    --line: rgba(232,163,61,0.16);
-    --line-cyan: rgba(94,234,212,0.14);
-    --text:#edeff5;
-    --muted:#8a93a6;
-    --amber:#e8a33d;
-    --amber-dim: rgba(232,163,61,0.35);
-    --cyan:#5eead4;
-    --radius: 14px;
-    --maxw: 1120px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:
-      radial-gradient(1200px 600px at 15% -10%, rgba(94,234,212,0.06), transparent 60%),
-      radial-gradient(1000px 700px at 100% 0%, rgba(232,163,61,0.07), transparent 55%),
-      var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{
-    font-family:'Space Grotesk', sans-serif;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-
-  /* circuit-line background texture */
-  .circuit-bg{
-    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:0.5;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(1000px 700px at 50% 0%, black, transparent 75%);
-  }
-
-  /* NAV */
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter: blur(10px);
-    background: rgba(11,18,32,0.72);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-  }
-  .nav-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
-  }
-  .brand{
-    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--amber); box-shadow:0 0 12px var(--amber);}
-  .nav-avatar{
-    width:32px; height:32px; border-radius:50%; object-fit:cover;
-    border:1.5px solid var(--amber-dim); box-shadow:0 2px 10px rgba(0,0,0,0.4);
-  }
-  nav.links{display:flex; gap:28px; font-size:14px; color:var(--muted);}
-  nav.links a{transition:color .2s ease;}
-  nav.links a:hover{color:var(--amber);}
-  .nav-cta{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
-    border:1px solid var(--amber-dim); color:var(--amber);
-    padding:8px 14px; border-radius:8px; transition:all .2s ease;
-  }
-  .nav-cta:hover{background:rgba(232,163,61,0.1); border-color:var(--amber);}
-
-  @media (max-width:760px){
-    nav.links{display:none;}
-  }
-
-  /* HERO */
-  section.hero{
-    position:relative; z-index:1;
-    padding:90px 0 70px;
-  }
-  .hero-grid{
-    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:56px; align-items:center;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; letter-spacing:0.14em;
-    color:var(--cyan); text-transform:uppercase; margin-bottom:18px; display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:''; width:22px; height:1px; background:var(--cyan);}
-  h1.name{font-size:clamp(38px, 5.4vw, 62px); font-weight:700; line-height:1.05;}
-  h1.name .accent{color:var(--amber);}
-  p.tagline{
-    margin-top:20px; font-size:17px; color:var(--muted); max-width:520px;
-  }
-  .hero-ctas{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Mono', monospace; font-size:13.5px;
-    padding:13px 22px; border-radius:9px; display:inline-flex; align-items:center; gap:8px;
-    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
-  }
-  .btn-primary{background:var(--amber); color:#1a1305; font-weight:500;}
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(232,163,61,0.25);}
-  .btn-ghost{border:1px solid rgba(255,255,255,0.14); color:var(--text);}
-  .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan); transform:translateY(-2px);}
-
-  .hero-meta{margin-top:38px; display:flex; gap:24px; flex-wrap:wrap; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--muted);}
-  .hero-meta span{display:flex; align-items:center; gap:7px;}
-  .hero-meta .b{color:var(--text);}
-
-  /* 3D signature stack */
-  .stage{
-    perspective:1200px;
-    display:flex; align-items:center; justify-content:center;
-    position:relative; height:420px;
-  }
-  .stack{
-    position:relative; width:280px; height:280px;
-    transform-style:preserve-3d;
-    transform: rotateX(52deg) rotateZ(-38deg);
-    transition:transform .15s ease-out;
-  }
-  .layer{
-    position:absolute; inset:0; border-radius:16px;
-    border:1px solid rgba(255,255,255,0.12);
-    display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end;
-    padding:16px 18px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.45);
-    backdrop-filter: blur(2px);
-  }
-  .layer .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase;}
-  .layer .stack-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px; margin-top:4px;}
-  .layer.l1{
-    background:linear-gradient(145deg, rgba(94,234,212,0.22), rgba(94,234,212,0.06));
-    border-color:rgba(94,234,212,0.4);
-    transform: translateZ(96px);
-    color:#c9fff2;
-  }
-  .layer.l2{
-    background:linear-gradient(145deg, rgba(232,163,61,0.22), rgba(232,163,61,0.05));
-    border-color:rgba(232,163,61,0.4);
-    transform: translateZ(32px);
-    color:#ffe4b3;
-  }
-  .layer.l3{
-    background:linear-gradient(145deg, rgba(160,140,255,0.20), rgba(160,140,255,0.04));
-    border-color:rgba(160,140,255,0.35);
-    transform: translateZ(-32px);
-    color:#e2dcff;
-  }
-  .layer.l4{
-    background:linear-gradient(145deg, rgba(126,217,87,0.20), rgba(126,217,87,0.04));
-    border-color:rgba(126,217,87,0.35);
-    transform: translateZ(-96px);
-    color:#dcffd0;
-  }
-  .photo-frame{
-    position:absolute; right:-6px; top:-46px;
-    width:132px; height:132px; border-radius:50%;
-    padding:4px;
-    background:conic-gradient(from 180deg, var(--amber), var(--cyan), var(--amber));
-    box-shadow:0 18px 40px rgba(0,0,0,0.5);
-    transform: translateZ(152px);
-  }
-  .photo-frame img{
-    width:100%; height:100%; object-fit:cover; border-radius:50%;
-    border:3px solid var(--bg);
-  }
-
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr; text-align:left;}
-    .stage{height:320px; margin-top:10px;}
-    .stack{width:220px;height:220px;}
-    .photo-frame{width:104px;height:104px;}
-  }
-
-  /* SECTION shared */
-  section{position:relative; z-index:1; padding:76px 0;}
-  .section-head{margin-bottom:40px;}
-  .section-num{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--amber); margin-bottom:10px; letter-spacing:.1em;}
-  h2.section-title{font-size:clamp(26px,3.4vw,34px); font-weight:600;}
-  p.section-sub{color:var(--muted); margin-top:12px; max-width:640px; font-size:15.5px;}
-
-  /* ABOUT */
-  .about-panel{
-    background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius);
-    padding:34px 38px; font-size:16px; color:#c9cede;
-  }
-  .about-panel b{color:var(--text); font-weight:600;}
-
-  /* CERTIFICATE GALLERY */
-  .cert-gallery{
-    margin-top:44px;
-  }
-  .cert-gallery-head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:22px;}
-  .cert-gallery-head h3{font-size:18px; color:var(--amber);}
-  .cert-gallery-head .cert-count{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted);}
-  .cert-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
-  @media (max-width:900px){.cert-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:560px){.cert-grid{grid-template-columns:1fr;}}
-  .cert-card{
-    background:var(--panel); border:1px solid rgba(255,255,255,0.08); border-radius:12px;
-    overflow:hidden; transition:border-color .25s ease, box-shadow .25s ease;
-    display:block; transform-style:preserve-3d; will-change:transform;
-  }
-  .cert-card:hover{border-color:var(--amber-dim); box-shadow:0 20px 40px rgba(0,0,0,0.4);}
-  .cert-thumb{
-    position:relative; width:100%; aspect-ratio:4/3; overflow:hidden;
-    background:linear-gradient(160deg, #f3efe4, #e6e0d0);
-    display:flex; align-items:center; justify-content:center; padding:12px;
-    border-bottom:1px solid rgba(0,0,0,0.08);
-  }
-  .cert-thumb img{
-    width:100%; height:100%; object-fit:contain; border-radius:3px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.25);
-    filter:contrast(1.08) saturate(1.08) brightness(1.03);
-    transition:transform .35s ease;
-  }
-  .cert-card:hover .cert-thumb img{transform:scale(1.04);}
-  .cert-thumb::before{
-    content:''; position:absolute; inset:6px; border:1px solid rgba(232,163,61,0.35); border-radius:6px;
-    pointer-events:none;
-  }
-  .cert-thumb::after{
-    content:'⤢ view full size'; position:absolute; right:10px; bottom:10px;
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--bg);
-    background:var(--amber); padding:4px 10px; border-radius:5px; opacity:0; transition:opacity .2s ease;
-  }
-  .cert-card:hover .cert-thumb::after{opacity:1;}
-  .cert-body{padding:14px 16px 16px;}
-  .cert-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--text); line-height:1.3;}
-  .cert-issuer{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--cyan); margin-top:6px;}
-  .cert-date{font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--muted); margin-top:3px;}
-
-  /* LIGHTBOX */
-  .lightbox{
-    position:fixed; inset:0; z-index:100; background:rgba(6,9,16,0.92);
-    display:none; align-items:center; justify-content:center; padding:40px;
-    backdrop-filter: blur(4px);
-  }
-  .lightbox.open{display:flex;}
-  .lightbox img{max-width:min(880px,92vw); max-height:86vh; border-radius:10px; box-shadow:0 30px 70px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.1);}
-  .lightbox-close{
-    position:absolute; top:26px; right:32px; font-family:'IBM Plex Mono',monospace; font-size:13px;
-    color:var(--text); border:1px solid rgba(255,255,255,0.2); padding:8px 14px; border-radius:8px;
-  }
-  .lightbox-close:hover{border-color:var(--amber); color:var(--amber);}
-  .lightbox-cap{position:absolute; bottom:30px; left:50%; transform:translateX(-50%); font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--muted); text-align:center;}
-
-  /* KHETGURU FLAGSHIP */
-  .flagship-panel{
-    position:relative;
-    background:linear-gradient(160deg, rgba(126,217,87,0.07), var(--panel) 55%);
-    border:1px solid rgba(126,217,87,0.22);
-    border-left:3px solid #7ed957;
-    border-radius:var(--radius);
-    padding:40px;
-    display:grid; grid-template-columns:1.2fr 0.8fr; gap:36px;
-  }
-  .founder-badge{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase;
-    color:#7ed957; border:1px solid rgba(126,217,87,0.35); background:rgba(126,217,87,0.08);
-    padding:6px 12px; border-radius:20px; margin-bottom:16px;
-  }
-  .founder-badge .pulse{width:6px;height:6px;border-radius:50%;background:#7ed957; box-shadow:0 0 8px #7ed957;}
-  .flagship-title{font-size:clamp(24px,3vw,30px); font-weight:700; font-family:'Space Grotesk',sans-serif;}
-  .flagship-desc{color:#c9cede; font-size:15.5px; margin-top:14px; max-width:520px;}
-  .flagship-list{margin:22px 0 0; padding-left:18px; color:#c9cede; font-size:15px;}
-  .flagship-list li{margin-bottom:9px;}
-  .flagship-stack{display:flex; gap:8px; flex-wrap:wrap; margin-top:24px;}
-  .flagship-cta{margin-top:26px; display:inline-flex;}
-  .capability-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-content:start;}
-  .cap-card{
-    background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:10px;
-    padding:16px; font-size:13px;
-  }
-  .cap-card .cap-icon{font-size:20px;}
-  .cap-card .cap-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; margin-top:8px; color:var(--text);}
-  .cap-card .cap-sub{color:var(--muted); font-size:12px; margin-top:4px; line-height:1.5;}
-  @media (max-width:800px){
-    .flagship-panel{grid-template-columns:1fr; padding:28px;}
-    .capability-grid{grid-template-columns:1fr 1fr;}
-  }
-
-  /* SKILLS */
-  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
-  .skill-card{
-    background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius);
-    padding:22px; transition:transform .25s ease, border-color .25s ease;
-  }
-  .skill-card:hover{transform:translateY(-4px); border-color:var(--amber-dim);}
-  .skill-card .k-label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:.08em; text-transform:uppercase;}
-  .skill-card .k-items{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px;}
-  .chip{
-    font-family:'IBM Plex Mono',monospace; font-size:12px; padding:6px 10px; border-radius:6px;
-    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); color:var(--text);
-  }
-  @media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:560px){.skills-grid{grid-template-columns:1fr;}}
-
-  /* EXPERIENCE timeline */
-  .timeline{border-left:1px solid rgba(255,255,255,0.1); padding-left:32px; position:relative;}
-  .t-item{position:relative; padding-bottom:8px;}
-  .t-item::before{
-    content:''; position:absolute; left:-38px; top:6px; width:11px; height:11px; border-radius:50%;
-    background:var(--bg); border:2px solid var(--amber);
-  }
-  .t-role{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600;}
-  .t-org{color:var(--cyan); font-size:14.5px; margin-top:4px;}
-  .t-date{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-top:4px;}
-  .t-list{margin:16px 0 0; padding-left:18px; color:#c9cede; font-size:15px;}
-  .t-list li{margin-bottom:8px;}
-
-  /* PROJECTS - 3D tilt cards */
-  .projects-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media (max-width:800px){.projects-grid{grid-template-columns:1fr;}}
-  .tilt-wrap{perspective:1000px;}
-  .proj-card{
-    background:linear-gradient(160deg, var(--panel-2), var(--panel));
-    border:1px solid rgba(255,255,255,0.07);
-    border-radius:var(--radius); padding:30px;
-    transform-style:preserve-3d;
-    transition:transform .12s ease-out, box-shadow .12s ease-out;
-    height:100%;
-  }
-  .proj-card:hover{box-shadow:0 24px 50px rgba(0,0,0,0.4);}
-  .proj-index{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--amber);}
-  .proj-title{font-size:21px; font-weight:600; margin-top:10px;}
-  .proj-stack{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
-  .proj-list{margin:18px 0 0; padding-left:18px; color:#c9cede; font-size:14.5px;}
-  .proj-list li{margin-bottom:8px;}
-
-  /* EDU + CERT */
-  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media (max-width:800px){.two-col{grid-template-columns:1fr;}}
-  .info-card{background:var(--panel); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius); padding:28px;}
-  .info-card h3{font-size:18px; margin-bottom:14px; color:var(--amber);}
-  .edu-degree{font-weight:600; font-size:16px;}
-  .edu-school{color:var(--muted); font-size:14px; margin-top:6px;}
-  .edu-meta{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--cyan); margin-top:10px;}
-  .cert-item{display:flex; gap:10px; margin-bottom:14px; font-size:14.5px; color:#c9cede;}
-  .cert-item .m{color:var(--cyan); font-family:'IBM Plex Mono',monospace; font-size:12px; min-width:18px;}
-
-  /* CONTACT / FOOTER */
-  footer{
-    border-top:1px solid rgba(255,255,255,0.07);
-    padding:64px 0 40px; position:relative; z-index:1;
-  }
-  .contact-box{
-    background:radial-gradient(600px 300px at 30% 0%, rgba(232,163,61,0.08), transparent), var(--panel);
-    border:1px solid rgba(255,255,255,0.07); border-radius:18px; padding:48px; text-align:center;
-  }
-  .contact-box h2{font-size:clamp(24px,3.4vw,32px);}
-  .contact-box p{color:var(--muted); margin-top:12px;}
-  .contact-links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:30px;}
-  .contact-links a{
-    font-family:'IBM Plex Mono',monospace; font-size:13px; padding:11px 18px; border-radius:8px;
-    border:1px solid rgba(255,255,255,0.12); transition:all .2s ease;
-  }
-  .contact-links a:hover{border-color:var(--amber); color:var(--amber); transform:translateY(-2px);}
-  .foot-note{text-align:center; margin-top:36px; color:var(--muted); font-size:12.5px; font-family:'IBM Plex Mono',monospace;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; animation:none !important;}
-  }
-
-  ::selection{background:var(--amber); color:#1a1305;}
-</style>
+<title>MD Shahnshah — Full Stack Developer</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div class="circuit-bg"></div>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="brand"><img class="nav-avatar" src="profile.jpg" alt="Md Shahnshah"><span class="dot"></span> Md Shahnshah</div>
-    <nav class="links">
-      <a href="#about">About</a>
-      <a href="#khetguru">KhetGuru</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-    </nav>
-    <a class="nav-cta" href="#contact">Get in touch →</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="eyebrow">Software Engineer · Data Scientist &amp; AI</div>
-      <h1 class="name">Md <span class="accent">Shahnshah</span></h1>
-      <p class="tagline">I engineer full-stack applications with PHP, ReactJS, Java and MySQL, and apply Python and data analysis to turn raw numbers into decisions. My biggest build is <b style="color:var(--text); font-weight:600;">KhetGuru AI</b> — an AI-assisted platform helping Indian farmers manage crops, spot disease early, and plan around the weather.</p>
-      <div class="hero-ctas">
-        <a href="#khetguru" class="btn btn-primary">See KhetGuru →</a>
-        <a href="#projects" class="btn btn-ghost">View Projects</a>
-        <a href="#contact" class="btn btn-ghost">Contact Me</a>
-      </div>
-      <div class="hero-meta">
-        <span>📍 <span class="b">Noida, Uttar Pradesh, India</span></span>
-        <span>✉️ <span class="b">mdshahnshah855113@gmail.com</span></span>
-        <span>📱 <span class="b">+91 7903267211</span></span>
-      </div>
-    </div>
-
-    <div class="stage" id="stage">
-      <div class="stack" id="stack">
-        <div class="photo-frame"><img src="profile.jpg" alt="Md Shahnshah"></div>
-        <div class="layer l1">
-          <div class="tag">Layer 01</div>
-          <div class="stack-title">ReactJS · JS · UI</div>
-        </div>
-        <div class="layer l2">
-          <div class="tag">Layer 02</div>
-          <div class="stack-title">PHP · Java Logic</div>
-        </div>
-        <div class="layer l3">
-          <div class="tag">Layer 03</div>
-          <div class="stack-title">MySQL Data</div>
-        </div>
-        <div class="layer l4">
-          <div class="tag">Layer 04</div>
-          <div class="stack-title">Python · Data & AI</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">01 / About</div>
-      <h2 class="section-title">Professional Summary</h2>
-    </div>
-    <div class="about-panel">
-      <p><b>Software engineer and data scientist</b> with hands-on experience building responsive web applications using PHP, ReactJS, JavaScript, and MySQL, and using Python for data analysis and applied AI. Proven track record of delivering client projects on schedule, integrating third-party APIs, and collaborating in cross-functional teams. Strong foundation in data structures, algorithms, and Java/C/C++.</p>
-      <p style="margin-top:16px;">My biggest project is <b>KhetGuru AI</b>, an AI-assisted platform for Indian farmers built primarily in Java, where I've handled product, engineering, and data science end to end — from model to mobile screen.</p>
-    </div>
-  </div>
-</section>
-
-<section id="khetguru">
-  <div class="wrap">
-    <div class="flagship-panel">
-      <div>
-        <div class="founder-badge"><span class="pulse"></span> Flagship Project</div>
-        <h2 class="flagship-title">KhetGuru AI — Built for the Indian Farmer</h2>
-        <p class="flagship-desc">KhetGuru AI is my biggest and most ambitious build: an AI-assisted Android application, developed primarily in Java, that helps farmers manage crops, catch disease early, and plan around the weather — engineered end to end, from data pipeline to production app.</p>
-        <ul class="flagship-list">
-          <li>Built the core Android application in Java, handling app architecture, business logic, and on-device performance.</li>
-          <li>Built AI-assisted crop management and disease identification features using image-based analysis and applied data science.</li>
-          <li>Integrated cloud-based weather APIs to deliver real-time, location-aware recommendations to farmers.</li>
-          <li>Implemented secure OTP authentication and multilingual support to reach non-English-speaking users across India.</li>
-        </ul>
-        <div class="flagship-stack">
-          <span class="chip">Java</span><span class="chip">Android</span><span class="chip">Python</span>
-          <span class="chip">Data Analysis</span><span class="chip">Cloud APIs</span><span class="chip">OTP Auth</span><span class="chip">Multilingual</span>
-        </div>
-        <a href="#contact" class="btn btn-primary flagship-cta">Talk about KhetGuru AI →</a>
-      </div>
-      <div class="capability-grid">
-        <div class="cap-card">
-          <div class="cap-icon">🌾</div>
-          <div class="cap-title">Crop Management</div>
-          <div class="cap-sub">Guidance through each stage of the crop cycle.</div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-icon">🔍</div>
-          <div class="cap-title">Disease Identification</div>
-          <div class="cap-sub">Early detection to reduce crop loss.</div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-icon">🌦️</div>
-          <div class="cap-title">Weather Recommendations</div>
-          <div class="cap-sub">Real-time, location-aware planning data.</div>
-        </div>
-        <div class="cap-card">
-          <div class="cap-icon">🗣️</div>
-          <div class="cap-title">Multilingual Access</div>
-          <div class="cap-sub">OTP auth and local-language support.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">02 / Skills</div>
-      <h2 class="section-title">Technical Toolkit</h2>
-      <p class="section-sub">The languages, frameworks and tools I use to take an idea from schema to screen — and from raw data to a decision.</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="k-label">Languages</div>
-        <div class="k-items">
-          <span class="chip">C</span><span class="chip">C++</span><span class="chip">Java</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="k-label">Web Stack</div>
-        <div class="k-items">
-          <span class="chip">PHP</span><span class="chip">ReactJS</span><span class="chip">JavaScript</span>
-          <span class="chip">Tailwind CSS</span><span class="chip">Servlets</span><span class="chip">JSP</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="k-label">Database</div>
-        <div class="k-items">
-          <span class="chip">MySQL</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="k-label">Data Science &amp; AI</div>
-        <div class="k-items">
-          <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NumPy</span>
-          <span class="chip">Data Analysis</span><span class="chip">Data Visualization</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <div class="k-label">Tools & Platforms</div>
-        <div class="k-items">
-          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Eclipse</span>
-          <span class="chip">Android Studio</span><span class="chip">Visual Studio</span>
-          <span class="chip">Linux</span><span class="chip">Apache Tomcat</span><span class="chip">WordPress</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">03 / Experience</div>
-      <h2 class="section-title">Where I've Worked</h2>
-    </div>
-    <div class="timeline">
-      <div class="t-item">
-        <div class="t-role">Creator & Java Developer</div>
-        <div class="t-org">KhetGuru AI</div>
-        <div class="t-date">JAN 2026 — PRESENT</div>
-        <ul class="t-list">
-          <li>Built KhetGuru AI, an AI-assisted agri-tech platform helping farmers with crop management, disease identification, and weather-based recommendations — Android app developed primarily in Java.</li>
-          <li>Own end-to-end product decisions across engineering, data science, and go-to-market.</li>
-        </ul>
-      </div>
-      <div class="t-item">
-        <div class="t-role">Full Stack Developer Intern</div>
-        <div class="t-org">Sewacity.com, Patna</div>
-        <div class="t-date">JAN 2024 — JUN 2024</div>
-        <ul class="t-list">
-          <li>Engineered 4+ responsive web application features using PHP, ReactJS, JavaScript, and Tailwind CSS, improving UI consistency across devices.</li>
-          <li>Integrated 3 third-party APIs to extend website functionality, reducing manual data-entry workload for the team by an estimated 30%.</li>
-          <li>Delivered 2 client-facing projects on schedule as part of a cross-functional team, with zero missed deadlines.</li>
-          <li>Debugged and resolved recurring issues in production code, improving page stability and reducing user-reported errors.</li>
-        </ul>
-      </div>
-      <div class="t-item">
-        <div class="t-role">Web Developer Intern</div>
-        <div class="t-org">EngineerCore (in association with Effervescence, IIIT Allahabad)</div>
-        <div class="t-date">AUG 2023 — OCT 2023</div>
-        <ul class="t-list">
-          <li>Built responsive web pages and layouts using HTML and CSS as part of a remote summer internship program.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">04 / Projects</div>
-      <h2 class="section-title">Selected Work</h2>
-      <p class="section-sub">Move your cursor over a card — it tilts in 3D, like everything else on this page.</p>
-    </div>
-    <div class="projects-grid">
-      <div class="tilt-wrap">
-        <div class="proj-card tilt">
-          <div class="proj-index">PROJECT / 01</div>
-          <div class="proj-title">Crime Data Management System</div>
-          <div class="proj-stack">
-            <span class="chip">Java</span><span class="chip">Servlets</span><span class="chip">JSP</span>
-            <span class="chip">MySQL</span><span class="chip">Apache Tomcat</span>
-          </div>
-          <ul class="proj-list">
-            <li>Built a full-stack criminal records management system deployed on Apache Tomcat 8.5.</li>
-            <li>Designed the database schema and backend logic independently, demonstrating end-to-end full-stack development.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tilt-wrap">
-        <a href="#khetguru" style="display:block; height:100%;">
-        <div class="proj-card tilt" style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start; border-color:rgba(126,217,87,0.25);">
-          <div class="proj-index" style="color:#7ed957;">FLAGSHIP PROJECT</div>
-          <div class="proj-title">KhetGuru AI ↗</div>
-          <p style="color:#c9cede; font-size:14.5px; margin-top:14px;">My biggest build gets its own spotlight above — an AI venture for farmers covering crop management, disease ID and weather recommendations in one app.</p>
-          <div class="proj-stack" style="margin-top:16px;">
-            <span class="chip">Java</span><span class="chip">Android</span><span class="chip">Python</span>
-          </div>
-        </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="section-num">05 / Education & Certifications</div>
-      <h2 class="section-title">Foundation</h2>
-    </div>
-    <div class="two-col">
-      <div class="info-card">
-        <h3>Education</h3>
-        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-        <div class="edu-school">Institute of Management Studies, Noida — Chaudhary Charan Singh University, Meerut</div>
-        <div class="edu-meta">JUN 2021 — JUN 2024 · 70.58%</div>
-        <div class="edu-meta" style="color:var(--muted); margin-top:8px;">Coursework: Data Structures & Algorithms, C/C++/Java, Operating Systems, Computer Networks</div>
-      </div>
-      <div class="info-card">
-        <h3>Certifications & Achievements</h3>
-        <div class="cert-item"><span class="m">01</span> Enterprise Security Deployment (6-Month Cybersecurity Program) — Palo Alto Networks</div>
-        <div class="cert-item"><span class="m">02</span> PHP & MySQL, JavaScript, LibreOffice Impress — Spoken Tutorial Project, IIT Bombay</div>
-        <div class="cert-item"><span class="m">03</span> Web Development with HTML/CSS — EngineerCore × IIIT Allahabad</div>
-        <div class="cert-item"><span class="m">04</span> Presenter, 7th International Conference on IoT Applications</div>
-        <div class="cert-item"><span class="m">05</span> Speaker, Buddy Lecture — IMS Noida</div>
-      </div>
-    </div>
-
-    <div class="cert-gallery">
-      <div class="cert-gallery-head">
-        <h3>Certificate Gallery</h3>
-        <span class="cert-count">8 documents · click to view full size</span>
-      </div>
-      <div class="cert-grid">
-        <a class="cert-card" href="cybersecurity.jpg" data-lightbox data-caption="Enterprise Security Deployment — Palo Alto Networks Cybersecurity Academy, Aug 2023">
-          <div class="cert-thumb"><img src="cybersecurity.jpg" alt="Cybersecurity certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">Enterprise Security Deployment</div>
-            <div class="cert-issuer">Palo Alto Networks Cybersecurity Academy</div>
-            <div class="cert-date">6-Month Program · Aug 2023</div>
-          </div>
-        </a>
-        <a class="cert-card" href="php-mysql.jpg" data-lightbox data-caption="PHP and MySQL Training — Spoken Tutorial Project, IIT Bombay, Sep 2023">
-          <div class="cert-thumb"><img src="php-mysql.jpg" alt="PHP and MySQL certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">PHP & MySQL Training</div>
-            <div class="cert-issuer">Spoken Tutorial, IIT Bombay</div>
-            <div class="cert-date">Sep 2023</div>
-          </div>
-        </a>
-        <a class="cert-card" href="javascript.jpg" data-lightbox data-caption="JavaScript Training — Spoken Tutorial Project, IIT Bombay, May 2023">
-          <div class="cert-thumb"><img src="javascript.jpg" alt="JavaScript certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">JavaScript Training</div>
-            <div class="cert-issuer">Spoken Tutorial, IIT Bombay</div>
-            <div class="cert-date">May 2023</div>
-          </div>
-        </a>
-        <a class="cert-card" href="libreoffice.jpg" data-lightbox data-caption="LibreOffice Suite Impress 6.3 — Spoken Tutorial Project, IIT Bombay, Apr 2022">
-          <div class="cert-thumb"><img src="libreoffice.jpg" alt="LibreOffice certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">LibreOffice Suite Impress 6.3</div>
-            <div class="cert-issuer">Spoken Tutorial, IIT Bombay</div>
-            <div class="cert-date">Apr 2022</div>
-          </div>
-        </a>
-        <a class="cert-card" href="webdev.jpg" data-lightbox data-caption="Web Development with HTML/CSS — EngineerCore x Effervescence, IIIT Allahabad, Sep 2023">
-          <div class="cert-thumb"><img src="webdev.jpg" alt="Web development certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">Web Development — HTML/CSS</div>
-            <div class="cert-issuer">EngineerCore × IIIT Allahabad</div>
-            <div class="cert-date">Aug–Sep 2023</div>
-          </div>
-        </a>
-        <a class="cert-card" href="iot-conference.jpg" data-lightbox data-caption="7th International Conference on Innovation and Index Reality — IMS Noida, 2022">
-          <div class="cert-thumb"><img src="iot-conference.jpg" alt="International conference certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">7th Int'l Conference Presenter</div>
-            <div class="cert-issuer">IMS Noida / IMS Law College</div>
-            <div class="cert-date">2022</div>
-          </div>
-        </a>
-        <a class="cert-card" href="buddy-lecture.jpg" data-lightbox data-caption="Buddy Lecture Speaker — Institute of Management Studies, Noida, Nov 2023">
-          <div class="cert-thumb"><img src="buddy-lecture.jpg" alt="Buddy Lecture certificate"></div>
-          <div class="cert-body">
-            <div class="cert-name">Buddy Lecture — Speaker</div>
-            <div class="cert-issuer">IMS Noida</div>
-            <div class="cert-date">Nov 2023</div>
-          </div>
-        </a>
-        <a class="cert-card" href="sewacity-experience.jpg" data-lightbox data-caption="Experience Letter — Sewacity Technologies Pvt. Ltd., Jun 2024">
-          <div class="cert-thumb"><img src="sewacity-experience.jpg" alt="Sewacity experience letter"></div>
-          <div class="cert-body">
-            <div class="cert-name">Experience Letter</div>
-            <div class="cert-issuer">Sewacity Technologies Pvt. Ltd.</div>
-            <div class="cert-date">Jun 2024</div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-close" id="lightboxClose">✕ Close</div>
-  <img id="lightboxImg" src="" alt="Certificate preview">
-  <div class="lightbox-cap" id="lightboxCap"></div>
+<div class="topbar">
+  <div class="brand"><div class="mark">MS</div></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="achievements.html">Achievements</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </div>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="contact-box">
-      <h2>Let's build something together.</h2>
-      <p>Open to software engineering and data science roles, freelance projects, and conversations about KhetGuru.</p>
-      <div class="contact-links">
-        <a href="mailto:mdshahnshah855113@gmail.com">✉️ Email</a>
-        <a href="tel:+917903267211">📱 Call</a>
-        <a href="https://linkedin.com/in/md-shahnshah-4562a4266" target="_blank" rel="noopener">🔗 LinkedIn</a>
-        <a href="https://github.com/shahanshah786" target="_blank" rel="noopener">💻 GitHub</a>
+<div class="shell">
+  <aside class="side">
+    <div class="brand">
+      <div class="mark">MS</div>
+      <div class="name">MD SHAHNSHAH<br><b>Full Stack Developer</b></div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#home" class="active"><span class="dot"></span> Home</a></li>
+        <li><a href="#about"><span class="dot"></span> About</a></li>
+        <li><a href="#skills"><span class="dot"></span> Skills</a></li>
+        <li><a href="#projects"><span class="dot"></span> Projects</a></li>
+        <li><a href="#experience"><span class="dot"></span> Experience</a></li>
+        <li><a href="certificates.html"><span class="dot"></span> Certificates</a></li>
+        <li><a href="achievements.html"><span class="dot"></span> Achievements</a></li>
+        <li><a href="#contact"><span class="dot"></span> Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="cta">
+      <a href="#" class="btn btn-primary">Download CV ↓</a>
+      <a href="#contact" class="btn btn-ghost">Let's Connect →</a>
+      <div class="social-row">
+        <a href="https://github.com/shahanshah786" title="GitHub">GH</a>
+        <a href="https://www.linkedin.com/in/md-shahnshah-4562a4266/" title="LinkedIn">in</a>
+        <a href="https://www.instagram.com/shanshu.1" title="Instagram">IG</a>
       </div>
     </div>
-    <div class="foot-note">© 2026 Md Shahnshah · Built with HTML, CSS & JavaScript</div>
-  </div>
-</footer>
+  </aside>
 
-<script>
-  // 3D tilt for hero stack, driven by pointer position
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const stage = document.getElementById('stage');
-    const stack = document.getElementById('stack');
-    if(!reduce && stage && stack){
-      stage.addEventListener('mousemove', (e)=>{
-        const r = stage.getBoundingClientRect();
-        const px = (e.clientX - r.left)/r.width - 0.5;
-        const py = (e.clientY - r.top)/r.height - 0.5;
-        const rx = 52 - py*22;
-        const rz = -38 + px*26;
-        stack.style.transform = `rotateX(${rx}deg) rotateZ(${rz}deg)`;
-      });
-      stage.addEventListener('mouseleave', ()=>{
-        stack.style.transform = 'rotateX(52deg) rotateZ(-38deg)';
-      });
-    }
-  })();
+  <main>
 
-  // 3D tilt for project cards
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce) return;
-    document.querySelectorAll('.tilt').forEach(card=>{
-      const wrap = card.parentElement;
-      wrap.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left)/r.width - 0.5;
-        const py = (e.clientY - r.top)/r.height - 0.5;
-        card.style.transform = `rotateY(${px*10}deg) rotateX(${-py*10}deg) translateZ(6px)`;
-      });
-      wrap.addEventListener('mouseleave', ()=>{
-        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-      });
-    });
-  })();
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="reveal in">
+          <div class="kicker mono">&lt;/&gt; Hi, I'm</div>
+          <h1>MD <span>Shahnshah</span><br>Full Stack Developer</h1>
+          <p class="lede">I build modern, responsive and user-friendly web &amp; mobile applications with clean code and a great user experience — from Noida, India.</p>
+          <div class="actions">
+            <a href="#projects" class="btn btn-primary">View My Work →</a>
+            <a href="#contact" class="btn btn-ghost">Contact Me</a>
+          </div>
+          <div class="stats-row">
+            <div><b>2+</b><span>Years Experience</span></div>
+            <div><b>15+</b><span>Projects Done</span></div>
+            <div><b>10+</b><span>Technologies</span></div>
+          </div>
+        </div>
 
-  // 3D tilt for certificate cards
-  (function(){
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce) return;
-    document.querySelectorAll('.cert-card').forEach(card=>{
-      card.addEventListener('mousemove', (e)=>{
-        const r = card.getBoundingClientRect();
-        const px = (e.clientX - r.left)/r.width - 0.5;
-        const py = (e.clientY - r.top)/r.height - 0.5;
-        card.style.transform = `perspective(800px) rotateY(${px*12}deg) rotateX(${-py*12}deg) translateY(-6px) translateZ(10px)`;
-      });
-      card.addEventListener('mouseleave', ()=>{
-        card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0) translateZ(0)';
-      });
-    });
-  })();
+        <div class="tilt-stage">
+          <div class="tilt-card">
+            <div class="badge"><span class="pulse"></span> Available for work</div>
+            <div class="photo-frame">
+              <img src="assets/profile.jpg" alt="MD Shahnshah">
+              <div class="scan"></div>
+            </div>
+            <div class="float-chip chip-1">const dev = "Shahnshah";</div>
+            <div class="float-chip chip-2">✓ 100% Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // certificate gallery lightbox
-  (function(){
-    const lightbox = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightboxImg');
-    const lbCap = document.getElementById('lightboxCap');
-    const closeBtn = document.getElementById('lightboxClose');
-    if(!lightbox) return;
-    document.querySelectorAll('[data-lightbox]').forEach(card=>{
-      card.addEventListener('click', (e)=>{
-        e.preventDefault();
-        lbImg.src = card.getAttribute('href');
-        lbCap.textContent = card.getAttribute('data-caption') || '';
-        lightbox.classList.add('open');
-      });
-    });
-    function closeLb(){ lightbox.classList.remove('open'); lbImg.src=''; }
-    closeBtn.addEventListener('click', closeLb);
-    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLb(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLb(); });
-  })();
+    <!-- ================= ABOUT ================= -->
+    <section id="about">
+      <div class="wrap">
+        <div class="eyebrow reveal">About</div>
+        <h2 class="sec-title reveal">A quick introduction</h2>
+        <p class="sec-sub reveal">The person behind the code — background, focus areas, and how I like to work.</p>
 
-  // fade-in sections on scroll — 3D perspective pop
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        en.target.style.opacity = 1;
-        en.target.style.transform = 'perspective(1200px) rotateX(0deg) translateY(0)';
-        obs.unobserve(en.target);
-      }
-    });
-  }, {threshold:0.12});
+        <div class="about-grid reveal">
+          <div class="card about-text">
+            <p>I'm a passionate <b>Software Engineer</b> with a background in Information Technology, holding a Bachelor's degree in Computer Application. I love turning ideas into real-world applications — from farming-tech apps to real-time chat systems — with clean, maintainable code.</p>
+            <ul class="fact-list">
+              <li><b>Noida, India</b>Based in</li>
+              <li><b>B.C.A.</b>Education</li>
+              <li><b>Full Stack</b>Focus area</li>
+              <li><b>Open source</b>Currently exploring</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:14px;">What I bring</h3>
+            <p class="about-text">Comfortable across the stack — from Java-based backends and Android apps to React interfaces and Node.js services — with an eye for detail on performance, structure, and user experience.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  document.querySelectorAll('section').forEach(sec=>{
-    sec.style.opacity = 0;
-    sec.style.transform = 'perspective(1200px) rotateX(8deg) translateY(34px)';
-    sec.style.transformOrigin = 'top center';
-    sec.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.19,1,.22,1)';
-    obs.observe(sec);
-  });
-</script>
+    <!-- ================= SKILLS ================= -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="eyebrow reveal">Skills</div>
+        <h2 class="sec-title reveal">Tools I work with</h2>
+        <p class="sec-sub reveal">Core languages and frameworks I use to ship projects end to end.</p>
 
+        <div class="skills-grid reveal">
+          <div class="skill"><div class="skill-top"><span>Java</span><span>90%</span></div><div class="bar"><i data-level="90"></i></div></div>
+          <div class="skill"><div class="skill-top"><span>JavaScript</span><span>85%</span></div><div class="bar"><i data-level="85"></i></div></div>
+          <div class="skill"><div class="skill-top"><span>React</span><span>90%</span></div><div class="bar"><i data-level="90"></i></div></div>
+          <div class="skill"><div class="skill-top"><span>Node.js</span><span>80%</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill"><div class="skill-top"><span>MongoDB</span><span>75%</span></div><div class="bar"><i data-level="75"></i></div></div>
+          <div class="skill"><div class="skill-top"><span>Android</span><span>78%</span></div><div class="bar"><i data-level="78"></i></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="eyebrow reveal">Projects</div>
+        <h2 class="sec-title reveal">Featured work</h2>
+        <p class="sec-sub reveal">A few things I've built recently.</p>
+
+        <div class="project-grid reveal">
+          <div class="project-card">
+            <div class="project-thumb">KG</div>
+            <div class="project-body">
+              <h3>KhetGuru</h3>
+              <p>Smart farming app helping farmers track crops and get timely advice.</p>
+              <div class="tag-row"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">Firebase</span></div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">PF</div>
+            <div class="project-body">
+              <h3>Portfolio Website</h3>
+              <p>This personal portfolio — dark theme, 3D interactions, scroll animations.</p>
+              <div class="tag-row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-thumb">CA</div>
+            <div class="project-body">
+              <h3>Chat Application</h3>
+              <p>Real-time messaging app with live typing status and rooms.</p>
+              <div class="tag-row"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Socket.io</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience">
+      <div class="wrap">
+        <div class="eyebrow reveal">Experience</div>
+        <h2 class="sec-title reveal">Where I've worked</h2>
+        <p class="sec-sub reveal">A short timeline of my journey so far.</p>
+
+        <div class="timeline reveal">
+          <div class="tl-item">
+            <div class="role">Full Stack Developer</div>
+            <div class="org mono">Freelance / Self-driven projects</div>
+            <p>Building and shipping full-stack web and Android applications end to end, from database design to UI polish.</p>
+          </div>
+          <div class="tl-item">
+            <div class="role">B.C.A. — Computer Application</div>
+            <div class="org mono">Bachelor's Degree</div>
+            <p>Built a foundation in programming, data structures, and software engineering practices.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card reveal">
+          <div>
+            <h2>Let's build something together</h2>
+            <p>Have a project in mind or just want to say hi? My inbox is always open.</p>
+          </div>
+          <a href="https://www.linkedin.com/in/md-shahnshah-4562a4266/" class="btn btn-primary">Get in touch →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <span>© 2026 MD Shahnshah. All rights reserved.</span>
+      <span class="mono">Built with HTML, CSS &amp; JS</span>
+    </footer>
+  </main>
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
