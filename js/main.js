@@ -30,8 +30,10 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-// ============ 3D TILT ON HERO CARD (mouse move) ============
+// ============ 3D TILT ON HERO CARD (mouse move) with layered parallax ============
 const tiltCard = document.querySelector('[data-tilt]');
+const tiltPhoto = tiltCard ? tiltCard.querySelector('.photo-frame img') : null;
+const tiltChips = tiltCard ? tiltCard.querySelectorAll('.float-chip') : [];
 if (tiltCard) {
   tiltCard.addEventListener('mousemove', (e) => {
     const rect = tiltCard.getBoundingClientRect();
@@ -40,9 +42,20 @@ if (tiltCard) {
     const rotateX = ((y - rect.height / 2) / rect.height) * -12;
     const rotateY = ((x - rect.width / 2) / rect.width) * 12;
     tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+
+    // deeper layer moves opposite for parallax depth
+    if (tiltPhoto) {
+      tiltPhoto.style.transform = `translate(${rotateY * -1.5}px, ${rotateX * -1.5}px) scale(1.06)`;
+    }
+    // chips float even closer to the viewer
+    tiltChips.forEach(chip => {
+      chip.style.transform = `translate(${rotateY * 2.5}px, ${rotateX * 2.5}px)`;
+    });
   });
   tiltCard.addEventListener('mouseleave', () => {
-    tiltCard.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+    tiltCard.style.transform = '';
+    if (tiltPhoto) tiltPhoto.style.transform = '';
+    tiltChips.forEach(chip => { chip.style.transform = ''; });
   });
 }
 
