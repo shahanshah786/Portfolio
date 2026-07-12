@@ -5,93 +5,145 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Achievements — MD Shahnshah</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.side .brand .mark.profile-avatar{
+  width:46px; height:46px; border-radius:50%; overflow:hidden; padding:0;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  border:2px solid rgba(255,255,255,.15);
+}
+.side .brand .mark.profile-avatar img{ width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
+
+.nav-combo{ position:relative; }
+.nav-combo-btn{ display:inline-flex; align-items:center; gap:6px; cursor:pointer; user-select:none; }
+.topbar .nav-combo-btn{
+  background:linear-gradient(180deg,#2fd68a,#22b6c9); color:#06231d; font-weight:700;
+  padding:8px 14px; border-radius:10px;
+  box-shadow:0 4px 0 #157e8a, 0 8px 14px rgba(0,0,0,.35);
+  transform:translateY(0); transition:transform .12s ease, box-shadow .12s ease;
+}
+.topbar .nav-combo-btn:hover{ transform:translateY(-2px); box-shadow:0 6px 0 #157e8a, 0 10px 16px rgba(0,0,0,.4); }
+.topbar .nav-combo-btn:active{ transform:translateY(2px); box-shadow:0 2px 0 #157e8a, 0 4px 8px rgba(0,0,0,.3); }
+.side .nav-combo-btn{
+  width:100%; padding:10px 12px; border-radius:10px;
+  background:linear-gradient(180deg,#2fd68a,#22b6c9); color:#06231d; font-weight:700;
+  box-shadow:0 4px 0 #157e8a, 0 6px 10px rgba(0,0,0,.35);
+  transform:translateY(0); transition:transform .12s ease, box-shadow .12s ease;
+}
+.side .nav-combo-btn:hover{ transform:translateY(-2px); }
+.side .nav-combo-btn:active{ transform:translateY(2px); box-shadow:0 2px 0 #157e8a, 0 3px 6px rgba(0,0,0,.3); }
+.side .nav-combo-btn .dot{ display:none; }
+.nav-combo-caret{ font-size:11px; transition:transform .15s ease; }
+.nav-combo.open .nav-combo-caret{ transform:rotate(180deg); }
+.nav-combo-menu{
+  position:absolute; top:calc(100% + 8px); left:0; min-width:190px;
+  background:#0f1720; border:1px solid rgba(255,255,255,.12); border-radius:10px;
+  box-shadow:0 10px 24px rgba(0,0,0,.45); padding:6px; display:none; z-index:50;
+}
+.nav-combo.open .nav-combo-menu{ display:block; }
+.nav-combo-menu a{ display:block; padding:9px 10px; border-radius:7px; color:#e8f0ee; text-decoration:none; font-size:14px; }
+.nav-combo-menu a:hover{ background:rgba(255,255,255,.08); }
+</style>
 </head>
 <body>
-
 <div class="topbar">
-  <div class="brand"><div class="mark">MS</div></div>
-  <nav>
-    <a href="index.html#home">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="index.html#experience">Experience</a>
+<div class="brand"><div class="mark">MS</div></div>
+<nav>
+<a href="index.html#home">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#skills">Skills</a>
+<a href="index.html#projects">Projects</a>
+<a href="index.html#experience">Experience</a>
+<div class="nav-combo" id="navComboTop">
+  <span class="nav-combo-btn" id="navComboBtnTop">Certificates &amp; Achievements <span class="nav-combo-caret">▾</span></span>
+  <div class="nav-combo-menu">
     <a href="certificates.html">Certificates</a>
     <a href="achievements.html" class="active">Achievements</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
+  </div>
 </div>
-
+<a href="index.html#contact">Contact</a>
+</nav>
+</div>
 <div class="shell">
 <aside class="side">
-  <div class="brand">
-    <div class="mark">MS</div>
-    <div class="name">MD SHAHNSHAH<br><b>Software Engineer</b></div>
+<div class="brand">
+<div class="mark profile-avatar"><img src="assets/profile.jpg" alt="MD Shahnshah"></div>
+<div class="name">MD SHAHNSHAH<br><b>Software Engineer</b></div>
+</div>
+<nav>
+<ul>
+<li><a href="index.html#home"><span class="dot"></span> Home</a></li>
+<li><a href="index.html#about"><span class="dot"></span> About</a></li>
+<li><a href="index.html#skills"><span class="dot"></span> Skills</a></li>
+<li><a href="index.html#projects"><span class="dot"></span> Projects</a></li>
+<li><a href="index.html#experience"><span class="dot"></span> Experience</a></li>
+<li class="nav-combo open" id="navComboSide">
+  <span class="nav-combo-btn" id="navComboBtnSide">Certificates &amp; Achievements <span class="nav-combo-caret">▾</span></span>
+  <div class="nav-combo-menu">
+    <a href="certificates.html">Certificates</a>
+    <a href="achievements.html" class="active">Achievements</a>
   </div>
-  <nav>
-    <ul>
-      <li><a href="index.html#home"><span class="dot"></span> Home</a></li>
-      <li><a href="index.html#about"><span class="dot"></span> About</a></li>
-      <li><a href="index.html#skills"><span class="dot"></span> Skills</a></li>
-      <li><a href="index.html#projects"><span class="dot"></span> Projects</a></li>
-      <li><a href="index.html#experience"><span class="dot"></span> Experience</a></li>
-      <li><a href="certificates.html"><span class="dot"></span> Certificates</a></li>
-      <li><a href="achievements.html" class="active"><span class="dot"></span> Achievements</a></li>
-      <li><a href="index.html#contact"><span class="dot"></span> Contact</a></li>
-    </ul>
-  </nav>
-  <div class="cta">
-    <a href="assets/SHAHNSHAH-RESUME.pdf" download class="btn btn-primary">Download CV ↓</a>
-    <a href="index.html#contact" class="btn btn-ghost">Let's Connect →</a>
-  </div>
+</li>
+<li><a href="index.html#contact"><span class="dot"></span> Contact</a></li>
+</ul>
+</nav>
+<div class="cta">
+<a href="assets/SHAHNSHAH-RESUME.pdf" download class="btn btn-primary">Download CV ↓</a>
+<a href="index.html#contact" class="btn btn-ghost">Let's Connect →</a>
+</div>
 </aside>
-
 <main>
 <section id="achieve-page" style="padding-top:60px;">
-  <div class="wrap">
-    <div class="eyebrow reveal">Achievements</div>
-    <h2 class="sec-title reveal">Moments &amp; milestones</h2>
-    <p class="sec-sub reveal">Experiences and recognitions outside of formal certifications. Click any card to view full size.</p>
-
-    <div class="cert-grid reveal">
-      <div class="cert-card" data-img="sewacity-experience.jpg">
-        <img src="sewacity-experience.jpg" alt="Sewacity internship experience">
-        <div class="cert-info"><h3>Sewacity.com Internship</h3><p>Full Stack Developer Intern experience, Patna</p></div>
-      </div>
-      <div class="cert-card" data-img="iot-conference.jpg">
-        <img src="iot-conference.jpg" alt="IoT Conference">
-        <div class="cert-info"><h3>IoT Conference</h3><p>Participation in an IoT-focused tech conference</p></div>
-      </div>
-      <div class="cert-card" data-img="buddy-lecture.jpg">
-        <img src="buddy-lecture.jpg" alt="Guest lecture / Buddy program">
-        <div class="cert-info"><h3>Guest Lecture</h3><p>Peer learning &amp; mentorship session</p></div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="eyebrow reveal">Achievements</div>
+<h2 class="sec-title reveal">Moments &amp; milestones</h2>
+<p class="sec-sub reveal">Experiences and recognitions outside of formal certifications. Click any card to view full size.</p>
+<div class="cert-grid reveal">
+<div class="cert-card" data-img="sewacity-experience.jpg">
+<img src="sewacity-experience.jpg" alt="Sewacity internship experience">
+<div class="cert-info"><h3>Sewacity.com Internship</h3><p>Full Stack Developer Intern experience, Patna</p></div>
+</div>
+<div class="cert-card" data-img="iot-conference.jpg">
+<img src="iot-conference.jpg" alt="IoT Conference">
+<div class="cert-info"><h3>IoT Conference</h3><p>Participation in an IoT-focused tech conference</p></div>
+</div>
+<div class="cert-card" data-img="buddy-lecture.jpg">
+<img src="buddy-lecture.jpg" alt="Guest lecture / Buddy program">
+<div class="cert-info"><h3>Guest Lecture</h3><p>Peer learning &amp; mentorship session</p></div>
+</div>
+</div>
+</div>
 </section>
 </main>
 </div>
-
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightboxClose">✕</span>
-  <img id="lightboxImg" src="" alt="Achievement full view">
+<span class="lightbox-close" id="lightboxClose">✕</span>
+<img id="lightboxImg" src="" alt="Achievement full view">
 </div>
-
 <script src="js/main.js"></script>
 <script>
-  const certCards = document.querySelectorAll('.cert-card');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-  certCards.forEach(card => {
-    card.addEventListener('click', () => {
-      lightboxImg.src = card.getAttribute('data-img');
-      lightbox.classList.add('open');
-    });
-  });
-  lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+const certCards = document.querySelectorAll('.cert-card');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+certCards.forEach(card => {
+card.addEventListener('click', () => {
+lightboxImg.src = card.getAttribute('data-img');
+lightbox.classList.add('open');
+});
+});
+lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+function setupNavCombo(wrapId, btnId){
+  var wrap = document.getElementById(wrapId);
+  var btn = document.getElementById(btnId);
+  if(!wrap || !btn) return;
+  btn.addEventListener('click', function(e){ e.stopPropagation(); wrap.classList.toggle('open'); });
+  document.addEventListener('click', function(){ wrap.classList.remove('open'); });
+}
+setupNavCombo('navComboTop', 'navComboBtnTop');
+setupNavCombo('navComboSide', 'navComboBtnSide');
 </script>
 </body>
 </html>
