@@ -64,6 +64,8 @@
 /* --- Project thumbnails: consistent, shorter height --- */
 .project-thumb.project-thumb-img{ height:150px; overflow:hidden; }
 .project-thumb.project-thumb-img img{ width:100%; height:150px; object-fit:contain; object-position:center; display:block; }
+.project-card-featured .project-thumb.project-thumb-img{ height:100%; }
+.project-card-featured .project-thumb.project-thumb-img img{ height:100%; }
 .project-card-featured{ cursor:pointer; }
 
 /* --- KhetGuru full detail modal --- */
@@ -130,7 +132,7 @@
 <body>
 
 <div class="topbar">
-  <div class="brand"><div class="mark-photo mark-photo-sm"><img src="assets/home.png" alt="MD Shahnshah"></div></div>
+  <div class="brand"><div class="mark-photo mark-photo-sm"><img src="assets/profile.jpg" alt="MD Shahnshah"></div></div>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -149,7 +151,7 @@
 <div class="shell">
 <aside class="side">
   <div class="brand">
-    <div class="mark-photo"><img src="assets/profile.jpg" alt="MD Shahnshah"></div>
+    <div class="mark-photo"><img src="assets/home.png" alt="MD Shahnshah"></div>
     <div class="name">MD SHAHNSHAH<br><b>Software Engineer</b></div>
   </div>
   <nav>
@@ -194,7 +196,7 @@
   <div class="hero-bg" data-parallax></div>
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <div class="kicker mono"> Hi, I'm</div>
+      <div class="kicker mono">Hi, I'm</div>
       <h1>MD <span>Shahnshah</span></h1>
       <div class="role-line mono">Software Engineer <span class="pipe">|</span> Full Stack Developer <span class="pipe">|</span> Data Scientist</div>
       <span class="tag learning-tag">🔬 Learning Data Science — Research phase</span>
@@ -213,7 +215,7 @@
       <div class="tilt-card" data-tilt>
         <div class="badge"><span class="pulse"></span> Available for work</div>
         <div class="photo-frame">
-          <img src="assets/profile.jpg" alt="MD Shahnshah">
+          <img src="assets/home.png" alt="MD Shahnshah">
           <div class="scan"></div>
         </div>
         <div class="float-chip chip-1">const dev = "Shahnshah";</div>
@@ -255,8 +257,8 @@
             <div class="edu-item-head">
               <div>
                 <h3>BCA — Computer Application</h3>
-                <h5>Chaudhary Charan Singh University, Meerut </h5>
-                <p>Affiliate:</p> <p>Institute of Management Studies, Noida · 2021–2024 · 70.58%</p>
+                <h6>Chaudhary Charan Singh University, Meerut</h6>
+                <p>Afflited:</p> <p>Institute of Management Studies, Noida · 2021–2024 · 70.58%</p>
               </div>
               <button class="edu-3d-btn" data-target="eduBCA">Coursework</button>
             </div>
@@ -278,7 +280,7 @@
             <div class="edu-item-head">
               <div>
                 <h3>12th — Commerce</h3>
-                <p>RDS College, Salmari . 2020 . 75%</p>
+                <p>RDS College, Salmari . 2020 . 75% </p>
               </div>
               <button class="edu-3d-btn" data-target="edu12th">Coursework</button>
             </div>
@@ -454,46 +456,7 @@
   </div>
 </section>
 
-<!-- ================= HIGHLIGHTS (Certificates + Achievements preview) ================= -->
-<section id="highlights">
-  <div class="wrap">
-    <div class="eyebrow reveal">Certificates &amp; Achievements</div>
-    <h2 class="sec-title reveal">Proof of the work</h2>
-    <p class="sec-sub reveal">A quick look here — the full collection lives on their own pages.</p>
 
-    <div class="highlight-cols reveal">
-      <div class="highlight-col">
-        <h3>Certificates</h3>
-        <div class="cert-grid-mini">
-          <a class="cert-card" href="certificates.html">
-            <img src="javascript.jpg" alt="JavaScript certificate">
-            <div class="cert-info"><h3>JavaScript</h3></div>
-          </a>
-          <a class="cert-card" href="certificates.html">
-            <img src="php-mysql.jpg" alt="PHP & MySQL certificate">
-            <div class="cert-info"><h3>PHP &amp; MySQL</h3></div>
-          </a>
-        </div>
-        <a href="certificates.html" class="btn btn-ghost">View All Certificates →</a>
-      </div>
-
-      <div class="highlight-col">
-        <h3>Achievements</h3>
-        <div class="cert-grid-mini">
-          <a class="cert-card" href="achievements.html">
-            <img src="sewacity-experience.jpg" alt="Sewacity internship experience">
-            <div class="cert-info"><h3>Sewacity Internship</h3></div>
-          </a>
-          <a class="cert-card" href="achievements.html">
-            <img src="iot-conference.jpg" alt="IoT Conference">
-            <div class="cert-info"><h3>IoT Conference</h3></div>
-          </a>
-        </div>
-        <a href="achievements.html" class="btn btn-ghost">View All Achievements →</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
