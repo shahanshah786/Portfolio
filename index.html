@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Md Shahnshah — Software Engineer, Data Scientist & AI | Founder, KhetGuru</title>
-<meta name="description" content="Portfolio of Md Shahnshah — Software Engineer and Data Scientist building with PHP, ReactJS, Python and MySQL, and Founder of KhetGuru, an AI-assisted platform for farmers.">
+<title>Md Shahnshah — Software Engineer, Data Scientist & AI</title>
+<meta name="description" content="Portfolio of Md Shahnshah — Software Engineer and Data Scientist building with PHP, ReactJS, Python, Java and MySQL. Creator of KhetGuru, an AI-assisted platform for farmers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -75,6 +75,10 @@
     display:flex; align-items:center; gap:10px;
   }
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--amber); box-shadow:0 0 12px var(--amber);}
+  .nav-avatar{
+    width:32px; height:32px; border-radius:50%; object-fit:cover;
+    border:1.5px solid var(--amber-dim); box-shadow:0 2px 10px rgba(0,0,0,0.4);
+  }
   nav.links{display:flex; gap:28px; font-size:14px; color:var(--muted);}
   nav.links a{transition:color .2s ease;}
   nav.links a:hover{color:var(--amber);}
@@ -213,18 +217,32 @@
   @media (max-width:900px){.cert-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:560px){.cert-grid{grid-template-columns:1fr;}}
   .cert-card{
-    background:var(--panel); border:1px solid rgba(255,255,255,0.07); border-radius:12px;
-    overflow:hidden; transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-    display:block;
+    background:var(--panel); border:1px solid rgba(255,255,255,0.08); border-radius:12px;
+    overflow:hidden; transition:border-color .25s ease, box-shadow .25s ease;
+    display:block; transform-style:preserve-3d; will-change:transform;
   }
-  .cert-card:hover{transform:translateY(-5px); border-color:var(--amber-dim); box-shadow:0 18px 34px rgba(0,0,0,0.35);}
-  .cert-thumb{position:relative; width:100%; aspect-ratio:4/3; overflow:hidden; background:#0a0f1a;}
-  .cert-thumb img{width:100%; height:100%; object-fit:cover; transition:transform .35s ease;}
-  .cert-card:hover .cert-thumb img{transform:scale(1.06);}
+  .cert-card:hover{border-color:var(--amber-dim); box-shadow:0 20px 40px rgba(0,0,0,0.4);}
+  .cert-thumb{
+    position:relative; width:100%; aspect-ratio:4/3; overflow:hidden;
+    background:linear-gradient(160deg, #f3efe4, #e6e0d0);
+    display:flex; align-items:center; justify-content:center; padding:12px;
+    border-bottom:1px solid rgba(0,0,0,0.08);
+  }
+  .cert-thumb img{
+    width:100%; height:100%; object-fit:contain; border-radius:3px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    filter:contrast(1.08) saturate(1.08) brightness(1.03);
+    transition:transform .35s ease;
+  }
+  .cert-card:hover .cert-thumb img{transform:scale(1.04);}
+  .cert-thumb::before{
+    content:''; position:absolute; inset:6px; border:1px solid rgba(232,163,61,0.35); border-radius:6px;
+    pointer-events:none;
+  }
   .cert-thumb::after{
-    content:'⤢ view'; position:absolute; right:8px; bottom:8px;
+    content:'⤢ view full size'; position:absolute; right:10px; bottom:10px;
     font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--bg);
-    background:var(--amber); padding:3px 8px; border-radius:5px; opacity:0; transition:opacity .2s ease;
+    background:var(--amber); padding:4px 10px; border-radius:5px; opacity:0; transition:opacity .2s ease;
   }
   .cert-card:hover .cert-thumb::after{opacity:1;}
   .cert-body{padding:14px 16px 16px;}
@@ -374,7 +392,7 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand"><span class="dot"></span> Md Shahnshah</div>
+    <div class="brand"><img class="nav-avatar" src="profile.jpg" alt="Md Shahnshah"><span class="dot"></span> Md Shahnshah</div>
     <nav class="links">
       <a href="#about">About</a>
       <a href="#khetguru">KhetGuru</a>
@@ -390,9 +408,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Software Engineer · Data Scientist &amp; AI · Founder, KhetGuru</div>
+      <div class="eyebrow">Software Engineer · Data Scientist &amp; AI</div>
       <h1 class="name">Md <span class="accent">Shahnshah</span></h1>
-      <p class="tagline">I engineer full-stack applications with PHP, ReactJS and MySQL, apply Python and data analysis to turn raw numbers into decisions, and founded <b style="color:var(--text); font-weight:600;">KhetGuru</b> — an AI-assisted platform helping Indian farmers manage crops, spot disease early, and plan around the weather.</p>
+      <p class="tagline">I engineer full-stack applications with PHP, ReactJS, Java and MySQL, and apply Python and data analysis to turn raw numbers into decisions. My biggest build is <b style="color:var(--text); font-weight:600;">KhetGuru AI</b> — an AI-assisted platform helping Indian farmers manage crops, spot disease early, and plan around the weather.</p>
       <div class="hero-ctas">
         <a href="#khetguru" class="btn btn-primary">See KhetGuru →</a>
         <a href="#projects" class="btn btn-ghost">View Projects</a>
@@ -437,7 +455,7 @@
     </div>
     <div class="about-panel">
       <p><b>Software engineer and data scientist</b> with hands-on experience building responsive web applications using PHP, ReactJS, JavaScript, and MySQL, and using Python for data analysis and applied AI. Proven track record of delivering client projects on schedule, integrating third-party APIs, and collaborating in cross-functional teams. Strong foundation in data structures, algorithms, and Java/C/C++.</p>
-      <p style="margin-top:16px;">In 2026 I founded <b>KhetGuru</b>, an AI-assisted platform for Indian farmers, where I lead product, engineering, and data science end to end — from model to mobile screen.</p>
+      <p style="margin-top:16px;">My biggest project is <b>KhetGuru AI</b>, an AI-assisted platform for Indian farmers built primarily in Java, where I've handled product, engineering, and data science end to end — from model to mobile screen.</p>
     </div>
   </div>
 </section>
@@ -446,20 +464,20 @@
   <div class="wrap">
     <div class="flagship-panel">
       <div>
-        <div class="founder-badge"><span class="pulse"></span> Founder-Led Product</div>
-        <h2 class="flagship-title">KhetGuru — AI for the Indian Farmer</h2>
-        <p class="flagship-desc">KhetGuru is my flagship venture: an AI-assisted Android application that helps farmers manage crops, catch disease early, and plan around the weather — built and led by me end to end, from data pipeline to production app.</p>
+        <div class="founder-badge"><span class="pulse"></span> Flagship Project</div>
+        <h2 class="flagship-title">KhetGuru AI — Built for the Indian Farmer</h2>
+        <p class="flagship-desc">KhetGuru AI is my biggest and most ambitious build: an AI-assisted Android application, developed primarily in Java, that helps farmers manage crops, catch disease early, and plan around the weather — engineered end to end, from data pipeline to production app.</p>
         <ul class="flagship-list">
-          <li>Founded and lead KhetGuru as a solo founder, owning product, engineering, and data science decisions.</li>
+          <li>Built the core Android application in Java, handling app architecture, business logic, and on-device performance.</li>
           <li>Built AI-assisted crop management and disease identification features using image-based analysis and applied data science.</li>
           <li>Integrated cloud-based weather APIs to deliver real-time, location-aware recommendations to farmers.</li>
           <li>Implemented secure OTP authentication and multilingual support to reach non-English-speaking users across India.</li>
         </ul>
         <div class="flagship-stack">
-          <span class="chip">Android</span><span class="chip">Python</span><span class="chip">Data Analysis</span>
-          <span class="chip">Cloud APIs</span><span class="chip">OTP Auth</span><span class="chip">Multilingual</span>
+          <span class="chip">Java</span><span class="chip">Android</span><span class="chip">Python</span>
+          <span class="chip">Data Analysis</span><span class="chip">Cloud APIs</span><span class="chip">OTP Auth</span><span class="chip">Multilingual</span>
         </div>
-        <a href="#contact" class="btn btn-primary flagship-cta">Talk about KhetGuru →</a>
+        <a href="#contact" class="btn btn-primary flagship-cta">Talk about KhetGuru AI →</a>
       </div>
       <div class="capability-grid">
         <div class="cap-card">
@@ -541,12 +559,12 @@
     </div>
     <div class="timeline">
       <div class="t-item">
-        <div class="t-role">Founder</div>
-        <div class="t-org">KhetGuru</div>
+        <div class="t-role">Creator & Java Developer</div>
+        <div class="t-org">KhetGuru AI</div>
         <div class="t-date">JAN 2026 — PRESENT</div>
         <ul class="t-list">
-          <li>Founded and lead KhetGuru, an AI-assisted agri-tech platform helping farmers with crop management, disease identification, and weather-based recommendations.</li>
-          <li>Own end-to-end product decisions across engineering, data science, and go-to-market as a solo founder.</li>
+          <li>Built KhetGuru AI, an AI-assisted agri-tech platform helping farmers with crop management, disease identification, and weather-based recommendations — Android app developed primarily in Java.</li>
+          <li>Own end-to-end product decisions across engineering, data science, and go-to-market.</li>
         </ul>
       </div>
       <div class="t-item">
@@ -598,10 +616,10 @@
         <a href="#khetguru" style="display:block; height:100%;">
         <div class="proj-card tilt" style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start; border-color:rgba(126,217,87,0.25);">
           <div class="proj-index" style="color:#7ed957;">FLAGSHIP PROJECT</div>
-          <div class="proj-title">KhetGuru App ↗</div>
-          <p style="color:#c9cede; font-size:14.5px; margin-top:14px;">My founder-led AI venture for farmers gets its own spotlight above — crop management, disease ID and weather recommendations in one app.</p>
+          <div class="proj-title">KhetGuru AI ↗</div>
+          <p style="color:#c9cede; font-size:14.5px; margin-top:14px;">My biggest build gets its own spotlight above — an AI venture for farmers covering crop management, disease ID and weather recommendations in one app.</p>
           <div class="proj-stack" style="margin-top:16px;">
-            <span class="chip">Android</span><span class="chip">Python</span><span class="chip">Cloud APIs</span>
+            <span class="chip">Java</span><span class="chip">Android</span><span class="chip">Python</span>
           </div>
         </div>
         </a>
@@ -770,6 +788,23 @@
     });
   })();
 
+  // 3D tilt for certificate cards
+  (function(){
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    document.querySelectorAll('.cert-card').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left)/r.width - 0.5;
+        const py = (e.clientY - r.top)/r.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${px*12}deg) rotateX(${-py*12}deg) translateY(-6px) translateZ(10px)`;
+      });
+      card.addEventListener('mouseleave', ()=>{
+        card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0) translateZ(0)';
+      });
+    });
+  })();
+
   // certificate gallery lightbox
   (function(){
     const lightbox = document.getElementById('lightbox');
@@ -791,12 +826,12 @@
     document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLb(); });
   })();
 
-  // fade-in sections on scroll
+  // fade-in sections on scroll — 3D perspective pop
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{
       if(en.isIntersecting){
         en.target.style.opacity = 1;
-        en.target.style.transform = 'translateY(0)';
+        en.target.style.transform = 'perspective(1200px) rotateX(0deg) translateY(0)';
         obs.unobserve(en.target);
       }
     });
@@ -804,8 +839,9 @@
 
   document.querySelectorAll('section').forEach(sec=>{
     sec.style.opacity = 0;
-    sec.style.transform = 'translateY(24px)';
-    sec.style.transition = 'opacity .6s ease, transform .6s ease';
+    sec.style.transform = 'perspective(1200px) rotateX(8deg) translateY(34px)';
+    sec.style.transformOrigin = 'top center';
+    sec.style.transition = 'opacity .8s ease, transform .8s cubic-bezier(.19,1,.22,1)';
     obs.observe(sec);
   });
 </script>
