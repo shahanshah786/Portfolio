@@ -59,6 +59,22 @@ if (tiltCard) {
   });
 }
 
+// ============ FLOATING "LET'S CONNECT" 3D BUTTON (all pages) ============
+const floatingConnect = document.getElementById('floatingConnect');
+if (floatingConnect) {
+  floatingConnect.addEventListener('click', (e) => {
+    const href = floatingConnect.getAttribute('href');
+    floatingConnect.classList.add('opening');
+    setTimeout(() => floatingConnect.classList.remove('opening'), 260);
+    if (href.indexOf('#') !== 0) {
+      // Points to another page (e.g. index.html#contact) — do the 3D press first, then navigate
+      e.preventDefault();
+      setTimeout(() => { window.location.href = href; }, 220);
+    }
+    // same-page anchor (#contact) navigates immediately via native smooth scroll
+  });
+}
+
 // ============ BIO READ MORE ============
 const bioText = document.getElementById('bioText');
 const readMoreBtn = document.getElementById('readMoreBtn');
