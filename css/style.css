@@ -356,8 +356,8 @@ footer{ display:flex; justify-content:space-between; padding:30px 24px 50px; col
   background:rgba(255,255,255,.06); border:1px solid var(--border);
 }
 
-/* ============ FLOATING "LET'S CONNECT" 3D BUTTON (all pages, top-left) ============ */
-.floating-connect-wrap{ position:fixed; top:16px; left:16px; z-index:150; perspective:700px; }
+/* ============ FLOATING "LET'S CONNECT" 3D BUTTON (all pages, top-right) ============ */
+.floating-connect-wrap{ position:fixed; top:16px; right:16px; left:auto; z-index:150; perspective:700px; }
 .floating-connect{
   display:flex; align-items:center; gap:8px;
   padding:11px 18px;
@@ -389,7 +389,7 @@ footer{ display:flex; justify-content:space-between; padding:30px 24px 50px; col
   50%{ background-position:100% 50%; }
 }
 @media (max-width:980px){
-  .floating-connect-wrap{ top:auto; bottom:16px; left:16px; }
+  .floating-connect-wrap{ top:auto; bottom:16px; right:16px; left:auto; }
   .floating-connect{ padding:9px 14px; font-size:13px; }
 }
 
