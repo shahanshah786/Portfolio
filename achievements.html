@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achievements — MD Shahnshah</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.side .brand .mark.profile-avatar{
+  width:46px; height:46px; border-radius:50%; overflow:hidden; padding:0;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  border:2px solid rgba(255,255,255,.15);
+}
+.side .brand .mark.profile-avatar img{ width:100%; height:100%; object-fit:cover; border-radius:50%; display:block; }
+
+.mini-3d-wrap{ perspective:700px; display:inline-block; }
+.mini-3d-btn{
+  display:flex; align-items:center; gap:8px;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  color:#062018;
+  background:linear-gradient(180deg,#37e0a0,#20b5c9);
+  box-shadow:0 5px 0 #146b78, 0 10px 18px rgba(0,0,0,.4);
+  transform:translateY(0) rotateX(0deg);
+  transform-style:preserve-3d;
+  transition:transform .25s cubic-bezier(.2,.8,.3,1.4), box-shadow .25s ease;
+  cursor:pointer;
+}
+.mini-3d-btn:hover{ transform:translateY(-3px) rotateX(8deg); box-shadow:0 8px 0 #146b78, 0 16px 24px rgba(0,0,0,.45); }
+.mini-3d-btn.opening{ transform:translateY(2px) rotateX(-25deg) scale(.94); box-shadow:0 2px 0 #146b78, 0 4px 10px rgba(0,0,0,.3); }
+.mini-3d-btn.achieve-btn{ background:linear-gradient(180deg,#ffb648,#ff7a59); box-shadow:0 5px 0 #a5401e, 0 10px 18px rgba(0,0,0,.4); }
+.mini-3d-btn.achieve-btn:hover{ box-shadow:0 8px 0 #a5401e, 0 16px 24px rgba(0,0,0,.45); }
+.mini-3d-btn.achieve-btn.opening{ box-shadow:0 2px 0 #a5401e, 0 4px 10px rgba(0,0,0,.3); }
+
+.side .mini-btn-row{
+  display:flex; flex-direction:column; gap:10px;
+  margin:14px 0 4px;
+}
+.side .mini-btn-row .mini-3d-wrap{ display:block; }
+.side .mini-btn-row .mini-3d-btn{ width:100%; justify-content:center; }
+
+.topbar .mini-btn-row{ display:flex; gap:10px; margin-left:10px; }
+.topbar .mini-3d-btn{ padding:7px 14px; font-size:13px; }
+</style>
+</head>
+<body>
+<div class="floating-connect-wrap">
+  <a href="index.html#contact" class="floating-connect" id="floatingConnect"><span class="fc-dot"></span> Let's Connect →</a>
+</div>
+<div class="topbar">
+<div class="brand"><div class="mark">MS</div></div>
+<nav>
+<a href="index.html#home">Home</a>
+<a href="index.html#about">About</a>
+<a href="index.html#skills">Skills</a>
+<a href="index.html#projects">Projects</a>
+<a href="index.html#experience">Experience</a>
+<a href="index.html#contact">Contact</a>
+<div class="mini-btn-row">
+  <div class="mini-3d-wrap"><span class="mini-3d-btn cert-btn" data-href="certificates.html">🎓 Certificates</span></div>
+  <div class="mini-3d-wrap"><span class="mini-3d-btn achieve-btn" data-href="achievements.html">🏆 Achievements</span></div>
+</div>
+</nav>
+</div>
+<div class="shell">
+<aside class="side">
+<div class="brand">
+<div class="mark profile-avatar"><img src="assets/profile.jpg" alt="MD Shahnshah"></div>
+<div class="name">MD SHAHNSHAH<br><b>Software Engineer</b></div>
+</div>
+<nav>
+<ul>
+<li><a href="index.html#home"><span class="dot"></span> Home</a></li>
+<li><a href="index.html#about"><span class="dot"></span> About</a></li>
+<li><a href="index.html#skills"><span class="dot"></span> Skills</a></li>
+<li><a href="index.html#projects"><span class="dot"></span> Projects</a></li>
+<li><a href="index.html#experience"><span class="dot"></span> Experience</a></li>
+<li><a href="index.html#contact"><span class="dot"></span> Contact</a></li>
+</ul>
+</nav>
+<div class="mini-btn-row">
+  <div class="mini-3d-wrap"><span class="mini-3d-btn cert-btn" data-href="certificates.html">🎓 Certificates</span></div>
+  <div class="mini-3d-wrap"><span class="mini-3d-btn achieve-btn" data-href="achievements.html">🏆 Achievements</span></div>
+</div>
+<div class="cta">
+<a href="assets/SHAHNSHAH-RESUME.pdf" download class="btn btn-primary">Download CV ↓</a>
+</div>
+</aside>
+<main>
+<section id="achieve-page" style="padding-top:60px;">
+<div class="wrap">
+<div class="eyebrow reveal">Achievements</div>
+<h2 class="sec-title reveal">Moments &amp; milestones</h2>
+<p class="sec-sub reveal">Experiences and recognitions outside of formal certifications. Click any card to view full size.</p>
+<div class="cert-grid reveal">
+<div class="cert-card" data-img="sewacity-experience.jpg">
+<img src="sewacity-experience.jpg" alt="Sewacity internship experience">
+<div class="cert-info"><h3>Sewacity.com Internship</h3><p>Full Stack Developer Intern experience, Patna</p></div>
+</div>
+<div class="cert-card" data-img="iot-conference.jpg">
+<img src="iot-conference.jpg" alt="IoT Conference">
+<div class="cert-info"><h3>IoT Conference</h3><p>Participation in an IoT-focused tech conference</p></div>
+</div>
+<div class="cert-card" data-img="buddy-lecture.jpg">
+<img src="buddy-lecture.jpg" alt="Guest lecture / Buddy program">
+<div class="cert-info"><h3>Guest Lecture</h3><p>Peer learning &amp; mentorship session</p></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+<span class="lightbox-close" id="lightboxClose">✕</span>
+<img id="lightboxImg" src="" alt="Achievement full view">
+</div>
+<script src="js/main.js"></script>
+<script>
+const certCards = document.querySelectorAll('.cert-card');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+certCards.forEach(card => {
+card.addEventListener('click', () => {
+lightboxImg.src = card.getAttribute('data-img');
+lightbox.classList.add('open');
+});
+});
+lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+
+document.querySelectorAll('.mini-3d-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var target = btn.getAttribute('data-href');
+    btn.classList.add('opening');
+    setTimeout(function(){ window.location.href = target; }, 260);
+  });
+});
+</script>
+</body>
+</html>
